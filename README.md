@@ -141,14 +141,17 @@ This solves the pain point of loneliness of not having anyone to play games with
 ### Why should we care about your product?
 We hope you care about games and wantt to bring that passion to a community of people just like you that enjoy discusing, playing, and helping others get past obstacles that they couldn't without the help of a party.
 
-Scope (In/Out)
-IN - What will your product do- Main Page
-Allow users to create a profile with info on what Achievements they've gotten which games they own, beat, or want. 
-It will have a wishlist feature to allow users to mark down upcoming games they interested in. 
-It will allow direct messaging to other users on the site 
-It will allow you to create a personal avatar to go along with your profile
-Will allow users to match up with other users who are looking for a party to play games with. 
-OUT - What will your product not do.
+## Scope (In/Out)
+### IN - What will your product do    
+Allow users to create a profile with info on what Achievements they've gotten which games they own, beat, or want.  
+It will have a wishlist feature to allow users to mark down upcoming games they interested in.  
+It will allow direct messaging to other users on the site.    
+It will allow you to create a personal avatar to go along with your profile.  
+Will allow users to match up with other users who are looking for a party to play games with.   
+
+### OUT - What will your product not do.
+It will now allow users to purchase any games from the site.  
+It will not allow users 
 
 ### MVP
 What will your MVP functionality be?
@@ -175,13 +178,16 @@ What stretch goals are you going to aim for?
 - Display playtime information for each game on user profile from steam (300.7 hours played)
 
 
-Functional Requirements
-List the functionality of your product. This will consist of tasks such as the following:
+## Functional Requirements
+List the functionality of your product.
+A user will be able to create a profile from the main page and import Achievements from multiple sources such as Steam, Xbox, and Playstation
+A users will be able to look through a list of games and be able to add them games they want to a wishlist 
+A user will be able to message others users from any page within the app 
 
-
-Data Flow
+## Data Flow
 Describe the flow of data in your application. Write out what happens from the time the user begins using the app to the time the user is done with the app. Think about the “Happy Path” of the application. Describe through visuals and text what requests are made, and what data is processed, in addition to any other details about how the user moves through the site.
-Non-Functional Requirements (301 & 401 only)
+
+## Non-Functional Requirements (301 & 401 only)
 Non-functional requirements are requirements that are not directly related to the functionality of the application but still important to the app.
 Examples include:
 Security
@@ -191,6 +197,7 @@ etc….
 Pick 2 non-functional requirements and describe their functionality in your application.
 If you are stuck on what non-functional requirements are, do a quick online search and do some research. Write a minimum of 3-5 sentences to describe how the non-functional requirements fits into your app.
 You MUST describe what the non-functional requirement is and how it will be implemented. Simply 
+
 
 
 
