@@ -180,9 +180,9 @@ What stretch goals are you going to aim for?
 
 ## Functional Requirements
 List the functionality of your product.
-A user will be able to create a profile from the main page and import Achievements from multiple sources such as Steam, Xbox, and Playstation
-A users will be able to look through a list of games and be able to add them games they want to a wishlist 
-A user will be able to message others users from any page within the app 
+A user will be able to create a profile from the main page and import Achievements from multiple sources such as Steam, Xbox, and Playstation  
+A users will be able to look through a list of games and be able to add them games they want to a wishlist   
+A user will be able to message others users from any page within the app   
 
 ## Data Flow
 Describe the flow of data in your application. Write out what happens from the time the user begins using the app to the time the user is done with the app. Think about the “Happy Path” of the application. Describe through visuals and text what requests are made, and what data is processed, in addition to any other details about how the user moves through the site.
