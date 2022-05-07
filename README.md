@@ -187,16 +187,9 @@ A user will be able to message others users from any page within the app
 ## Data Flow
 Describe the flow of data in your application. Write out what happens from the time the user begins using the app to the time the user is done with the app. Think about the “Happy Path” of the application. Describe through visuals and text what requests are made, and what data is processed, in addition to any other details about how the user moves through the site.
 
-## Non-Functional Requirements (301 & 401 only)
-Non-functional requirements are requirements that are not directly related to the functionality of the application but still important to the app.
-Examples include:
-Security
-Usability
-Testability - We will be using pytest to 
-etc….
-Pick 2 non-functional requirements and describe their functionality in your application.
-If you are stuck on what non-functional requirements are, do a quick online search and do some research. Write a minimum of 3-5 sentences to describe how the non-functional requirements fits into your app.
-You MUST describe what the non-functional requirement is and how it will be implemented. Simply 
+## Non-Functional Requirements
+1. Testability - We will be writing unit tests for each method we use on our app along with unit tests to test out functionality of the app. We hope to write at least 2 tests for each method or function. Along with achieving 80% testing coverage using pytest as our testing option.  
+2. Security - 
 
 
 
