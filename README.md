@@ -31,7 +31,12 @@ I’ll be good at project planning through the process, possibly being a good re
 I do well with coding along with others with mob coding, it helps to be either the driver or the observer. Can deliver good feedback or suggestions to functions that are being coded out. 
 I have good presentation skills and communicate really well when it comes to group activities. 
 ### How can you best utilize these strengths in the execution of your project?
-I’ll 
+I’ll use my skills to keep the team on task and assist with any inconsistencies with design of code.
+### In which professional competencies do you each want to develop greater strength?
+I really want to develop more on my own explanations of my code. Properly leveraging technical skills is an area of opportunity for me.  
+### Knowing that every person in your team needs to understand all aspects of the project, how do you plan to approach the day-to-day work?
+My work usually does a daily standup that allows people to bring forth their ideas and work related items to the table. In that same structure prior to actually doing any work, having a standup can help with getting everyone aligned on the tasks that are needed to get done for the day. 
+
 
 ## Michael
 ### What are the key strengths of each person on the team? 
@@ -101,9 +106,9 @@ Merge to main when a component is finished and merge to dev every night
 15min at the end of each night 
 
 ## Project Ideas Runner Ups
-Tinder but for Music. (Given random song, swipe left/right)
-Letterboxd, but for games.
-Video chat application
+Tinder but for Music. (Given random song, swipe left/right)  
+Letterboxd, but for games  
+Video chat application  
 
 ## Musical Tinder
 A music discovery app similar to Tinder in functionality. Users are shown song samples and can swipe left or right to judge it.
