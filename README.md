@@ -189,7 +189,7 @@ Describe the flow of data in your application. Write out what happens from the t
 
 ## Non-Functional Requirements
 1. Testability - We will be writing unit tests for each method we use on our app along with unit tests to test out functionality of the app. We hope to write at least 2 tests for each method or function. Along with achieving 80% testing coverage using pytest as our testing option.  
-2. Security - 
+2. Security - We are hoping to use AuthO to allow users to create accounts and handle all of the authentication for us. 
 
 
 
