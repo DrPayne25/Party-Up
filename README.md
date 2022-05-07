@@ -130,6 +130,9 @@ Front-end dashboard, a launcher window that contains the conversation.
 
 ## Party Up - Winner
 
+## [User Stories](https://trello.com/b/j79iVZ01/project-management)
+
+
 ## Software Requirements
 ### Vision
 ### What is the vision of this product?
