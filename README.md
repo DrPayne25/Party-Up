@@ -149,7 +149,6 @@ We hope you care about games and wantt to bring that passion to a community of p
 Allow users to create a profile with info on what Achievements they've gotten which games they own, beat, or want.  
 It will have a wishlist feature to allow users to mark down upcoming games they interested in.  
 It will allow direct messaging to other users on the site.    
-It will allow you to create a personal avatar to go along with your profile.  
 Will allow users to match up with other users who are looking for a party to play games with.   
 
 ### OUT - What will your product not do.
