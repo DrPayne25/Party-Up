@@ -189,6 +189,21 @@ A user will be able to message others users from any page within the app
 ## Data Flow
 Describe the flow of data in your application. Write out what happens from the time the user begins using the app to the time the user is done with the app. Think about the “Happy Path” of the application. Describe through visuals and text what requests are made, and what data is processed, in addition to any other details about how the user moves through the site.
 
+In our data flow we want the user to initate contact through the login page where they can login or create an account. From there once the user has been able to successfully login ino their account they should be able to view a landing page that will have the user's feed and profile path veiwable on the page. In this instacne we would like there to API calls that would utilize things like Xbox, Steam, Playstation when interacting with games that are of interest to the user. From the user's profile they can venture into looking into the wishlist, direct messaging menu, comment board, game reviews, accolades or discord API. This allows the user to use these paths to do multiple different features.
+
+**Direct Messaging** 
+- Shows users that the indiviual has followed/friended. Can make short messaegs between one user to the next.
+**WishList**
+- User may add and remove from wishlist allowing for any game the user is looking to purchase or play in the near future.
+**Comment Board**
+- The player may be able to leave comments to other users and in turn leave comments to other users about games, strtegies, etc.
+**Game Reviews**
+- Allows users to give reviews to their favorite games and reccomend certain games they like best of different genres.
+**Accolades**
+- A cool aesthetic, users can endorse other users on how well they are play particular games and what skills they have in multiple games if need be.
+**Discord API**
+- Give the user tha ability to for PArties with their new user friends and take it to discord for live voice channels. 
+
 ## Non-Functional Requirements
 1. Testability - We will be writing unit tests for each method we use on our app along with unit tests to test out functionality of the app. We hope to write at least 2 tests for each method or function. Along with achieving 80% testing coverage using pytest as our testing option.  
 2. Security - We are hoping to use AuthO to allow users to create accounts and handle all of the authentication for us. 
