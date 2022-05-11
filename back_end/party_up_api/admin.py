@@ -1,3 +1,4 @@
-from atexit import register
-import site
-from django.contrib import admin.site.register
+from django.contrib import admin
+from .models import Profile
+
+admin.site.register(Profile)
