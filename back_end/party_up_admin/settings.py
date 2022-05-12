@@ -11,9 +11,29 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+env = environ.Env(
+    # DEBUG=(bool, False),
+    # ENVIRONMENT=(str, "PRODUCTION"),
+    # ALLOW_ALL_ORIGINS=(bool, False),
+    # ALLOWED_HOSTS=(list, []),
+    # ALLOWED_ORIGINS=(list, []),
+    # DATABASE_ENGINE=(str, "django.db.backends.sqlite3"),
+    # DATABASE_NAME=(str, BASE_DIR / "db.sqlite3"),
+    # DATABASE_USER=(str, ""),
+    # DATABASE_PASSWORD=(str, ""),
+    # DATABASE_HOST=(str, ""),
+    # DATABASE_PORT=(int, 5432),   
+)
+
+# SECRET_KEY = env.str("SECRET_KEY")
+environ.Env.read_env()
+
+# ENVIRONMENT = env.str("ENVIRONMENT")
 
 
 # Quick-start development settings - unsuitable for production
@@ -24,9 +44,9 @@ SECRET_KEY = 'django-insecure-d8no$e)_tl_eq#fk6(yn!!y6l4%d@#)+k$pa&vkd_0job1wc7v
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# env.bool('DEBUG')
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = tuple(env.list("ALLOWED_HOSTS"))
 
 # Application definition
 
@@ -37,6 +57,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'party_up_api',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'party_up_admin.urls'
@@ -74,12 +98,15 @@ WSGI_APPLICATION = 'party_up_admin.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": env.str("DATABASE_ENGINE"),
+        "NAME": env.str("DATABASE_NAME"),
+        "USER": env.str("DATABASE_USER"),
+        "PASSWORD": env.str("DATABASE_PASSWORD"),
+        "HOST": env.str("DATABASE_HOST"),
+        "PORT": env.int("DATABASE_PORT"),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -121,3 +148,17 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.BasicAuthentication",
+    ],
+}
+
+# CORS_ORIGIN_WHITELIST = tuple(env.list("ALLOWED_ORIGINS"))
+# CORS_ALLOW_ALL_ORIGINS = env.bool("ALLOW_ALL_ORIGINS")

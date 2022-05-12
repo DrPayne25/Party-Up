@@ -7,6 +7,7 @@ class Profile(models.Model):
   email = models.CharField(max_length=128)
   username = models.CharField(max_length=128)
   password = models.CharField(max_length=128)
+  dob = models.DateField()
   about_me = models.TextField(blank=True)
   currency = models.IntegerField(default=0)
 
