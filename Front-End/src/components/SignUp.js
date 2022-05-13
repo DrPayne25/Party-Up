@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Form } from 'react-bootstrap';
 
 const SignUp = () => {
     const intialValues = { email: '', realname: '', password: '', confirm: '', birthday: '' };
@@ -63,11 +64,11 @@ const SignUp = () => {
     
     return (
         <div>
-            <h1>Got an account? Sign In!</h1>
-            <form onSubmit={handleSubmit} noValidate>
+            {/* <h1>Got an account? Sign In!</h1> */}
+            <Form onSubmit={handleSubmit} noValidate>
                 <div>
-                    <label htmlFor="email">Email</label>
-                    <input
+                    <Form.Label htmlFor="email">Email</Form.Label>
+                    <Form.Control
                         type="email"
                         name="email"
                         id="email"
@@ -76,10 +77,9 @@ const SignUp = () => {
                     />
                     {formErrors.email && <span>{formErrors.email}</span>}
                 </div>
-
                 <div>
-                    <label htmlFor="realname">Name</label>
-                    <input
+                    <Form.Label htmlFor="realname">Name</Form.Label>
+                    <Form.Control
                         type="text"
                         name="realname"
                         id="realname"
@@ -88,10 +88,9 @@ const SignUp = () => {
                     />
                     {formErrors.realname && <span>{formErrors.realname}</span>}
                 </div>
-    
                 <div>
-                    <label htmlFor="password">Password</label>
-                    <input
+                    <Form.Label htmlFor="password">Password</Form.Label>
+                    <Form.Control
                         type="password"
                         name="password"
                         id="password"
@@ -100,10 +99,9 @@ const SignUp = () => {
                     />
                     {formErrors.password && <span>{formErrors.password}</span>}
                 </div>
-
                 <div>
-                    <label htmlFor="confirm">Confirm your password</label>
-                    <input
+                    <Form.Label htmlFor="confirm">Confirm your password</Form.Label>
+                    <Form.Control
                         type="password"
                         name="confirm"
                         id="confirm"
@@ -112,10 +110,9 @@ const SignUp = () => {
                     />
                     {formErrors.confirm && <span>{formErrors.confirm}</span>}
                 </div>
-
                 <div>
-                    <label htmlFor="birthday">What is your birthday?</label>
-                    <input
+                    <Form.Label htmlFor="birthday">What is your birthday?</Form.Label>
+                    <Form.Control
                         type="date"
                         name="birthday"
                         id="birthday"
@@ -124,9 +121,8 @@ const SignUp = () => {
                     />
                     {formErrors.birthday && <span>{formErrors.birthday}</span>}
                 </div>
-
                 <button type="submit">Sign Up!</button>
-            </form>
+            </Form>
         </div>
     );
 }
