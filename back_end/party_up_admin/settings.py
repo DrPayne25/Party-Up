@@ -17,34 +17,26 @@ import environ
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env(
-    # DEBUG=(bool, False),
-    # ENVIRONMENT=(str, "PRODUCTION"),
-    # ALLOW_ALL_ORIGINS=(bool, False),
-    # ALLOWED_HOSTS=(list, []),
-    # ALLOWED_ORIGINS=(list, []),
-    # DATABASE_ENGINE=(str, "django.db.backends.sqlite3"),
-    # DATABASE_NAME=(str, BASE_DIR / "db.sqlite3"),
-    # DATABASE_USER=(str, ""),
-    # DATABASE_PASSWORD=(str, ""),
-    # DATABASE_HOST=(str, ""),
-    # DATABASE_PORT=(int, 5432),   
+    SECRET_KEY=(str, ""),
+    DEBUG=(bool, False),
+    ENVIRONMENT=(str, "PRODUCTION"),
+    ALLOW_ALL_ORIGINS=(bool, False),
+    ALLOWED_HOSTS=(list, []),
+    ALLOWED_ORIGINS=(list, []),
+    DATABASE_ENGINE=(str, "django.db.backends.sqlite3"),
+    DATABASE_NAME=(str, BASE_DIR / "db.sqlite3"),
+    DATABASE_USER=(str, ""),
+    DATABASE_PASSWORD=(str, ""),
+    DATABASE_HOST=(str, ""),
+    DATABASE_PORT=(int, 5432),   
 )
 
-# SECRET_KEY = env.str("SECRET_KEY")
 environ.Env.read_env()
+SECRET_KEY = env.str("SECRET_KEY")
 
-# ENVIRONMENT = env.str("ENVIRONMENT")
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-d8no$e)_tl_eq#fk6(yn!!y6l4%d@#)+k$pa&vkd_0job1wc7v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# env.bool('DEBUG')
+DEBUG = env.bool('DEBUG')
 
 ALLOWED_HOSTS = tuple(env.list("ALLOWED_HOSTS"))
 
@@ -143,6 +135,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [
+    "/home/special.party_up_api.com/party_up_api/static",
+    "/home/party_up_api.com/party_up_api/static",
+    "/opt/webfiles/common",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -160,5 +158,6 @@ REST_FRAMEWORK = {
     ],
 }
 
-# CORS_ORIGIN_WHITELIST = tuple(env.list("ALLOWED_ORIGINS"))
-# CORS_ALLOW_ALL_ORIGINS = env.bool("ALLOW_ALL_ORIGINS")
+CORS_ORIGIN_WHITELIST = tuple(env.list("ALLOWED_ORIGINS"))
+CORS_ALLOW_ALL_ORIGINS = env.bool("ALLOW_ALL_ORIGINS")
+
