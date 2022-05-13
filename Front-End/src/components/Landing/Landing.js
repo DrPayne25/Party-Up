@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import Form from './LandingForm'
+import LandingForm from './LandingForm';
 
 const Landing = () => {
     return (
@@ -18,7 +18,7 @@ const Landing = () => {
                     <h1>Party Up!</h1>
                     <img src='http://placekitten.com/700/670' alt='' />
                 </Hero>
-                <Form />
+                <LandingForm />
             </Section>
         </Container>
     )
