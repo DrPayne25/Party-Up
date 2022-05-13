@@ -1,6 +1,7 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import Header from '../Header';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Profile = () => {
     return (
@@ -11,6 +12,7 @@ const Profile = () => {
             </ProfilePic>
             <About>
                 <h1>Stuff about me</h1>
+                
             </About>
             <Post>
                 <form>

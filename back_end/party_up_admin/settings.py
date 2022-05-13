@@ -17,7 +17,7 @@ import environ
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env(
-    SECRET_KEY=(str,""),
+    SECRET_KEY=(str, ""),
     DEBUG=(bool, False),
     ENVIRONMENT=(str, "PRODUCTION"),
     ALLOW_ALL_ORIGINS=(bool, False),
@@ -32,7 +32,6 @@ env = environ.Env(
 )
 
 environ.Env.read_env()
-
 SECRET_KEY = env.str("SECRET_KEY")
 
 
@@ -136,6 +135,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [
+    "/home/special.party_up_api.com/party_up_api/static",
+    "/home/party_up_api.com/party_up_api/static",
+    "/opt/webfiles/common",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

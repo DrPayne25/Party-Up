@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Form = () => {
+const LandingForm = () => {
     const intialValues = { email: '', password: '' };
 
     const [formValues, setFormValues] = useState(intialValues);
@@ -96,5 +96,5 @@ const ToSignUp = () => {
     )
 
 }
-export default Form
+export default LandingForm;
 
