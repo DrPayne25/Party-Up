@@ -15,7 +15,7 @@ const Landing = () => {
             </Nav>
             <Section>
                 <Hero>
-                    <h1>Party Up!</h1>
+                    <h1>Party Up!</h1>                    
                     <img src='http://placekitten.com/700/670' alt='' />
                 </Hero>
                 <LandingForm />

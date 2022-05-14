@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LoginButton from '../Login';
-import LogoutButton from '../logout';
+// import LoginButton from '../login-button';
+// import LogoutButton from '../logout-button';
+import AuthButton from '../auth-button'
 
 
 const LandingForm = () => {
@@ -96,8 +97,9 @@ const LandingForm = () => {
                 <ToSignUp />
             </form>
             <div>
-                <LoginButton/>
-                <LogoutButton/>
+                <AuthButton/>
+                {/* <LoginButton/>
+                <LogoutButton/> */}
             </div>
         </div>
       );
