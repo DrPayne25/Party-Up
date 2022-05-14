@@ -12,9 +12,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import environ
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATE_DIR = os.path.join(BASE_DIR, "webappexample", "templates")
 
 env = environ.Env(
     SECRET_KEY=(str, ""),
@@ -28,11 +30,17 @@ env = environ.Env(
     DATABASE_USER=(str, ""),
     DATABASE_PASSWORD=(str, ""),
     DATABASE_HOST=(str, ""),
-    DATABASE_PORT=(int, 5432),   
+    DATABASE_PORT=(int, 5432),
+    AUTH0_CLIENT_ID=(str, ''),
+    AUTH0_CLIENT_SECRET=(str, ''),
+    AUTH0_DOMAIN=(str, '')
 )
 
 environ.Env.read_env()
 SECRET_KEY = env.str("SECRET_KEY")
+AUTH0_CLIENT_ID=env.str('AUTH0_CLIENT_ID')
+AUTH0_CLIENT_SECRET=env.str('AUTH0_CLIENT_SECRET')
+AUTH0_DOMAIN=env.str('AUTH0_DOMAIN')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
