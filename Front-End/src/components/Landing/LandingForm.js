@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import LoginButton from '../Login';
+import LogoutButton from '../logout';
+
 
 const LandingForm = () => {
     const intialValues = { email: '', password: '' };
@@ -7,6 +10,8 @@ const LandingForm = () => {
     const [formValues, setFormValues] = useState(intialValues);
     const [formErrors, setFormErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
+    var axios = require("axios").default;
+
 
     const submit = () => {
         console.log(formValues)
@@ -21,6 +26,18 @@ const LandingForm = () => {
         event.preventDefault();
         setFormErrors(validate(formValues));
         setIsSubmitting(true);
+
+        var options = {
+            method: 'GET',
+            url: 'http://localhost:3010/api/private',
+            headers: {authorization: 'Bearer YOUR_ACCESS_TOKEN'}
+        };
+
+        axios.request(options).then(function (response) {
+            console.log(response.data);
+        }).catch(function (error) {
+            console.error(error);
+        });
       };
 
     const validate = (values) => {
@@ -78,6 +95,10 @@ const LandingForm = () => {
                 <button type="submit">Sign In</button>
                 <ToSignUp />
             </form>
+            <div>
+                <LoginButton/>
+                <LogoutButton/>
+            </div>
         </div>
       );
 };

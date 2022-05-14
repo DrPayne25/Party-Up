@@ -12,9 +12,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import environ
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATE_DIR = os.path.join(BASE_DIR, "webappexample", "templates")
 
 env = environ.Env(
     SECRET_KEY=(str, ""),
@@ -28,11 +30,17 @@ env = environ.Env(
     DATABASE_USER=(str, ""),
     DATABASE_PASSWORD=(str, ""),
     DATABASE_HOST=(str, ""),
-    DATABASE_PORT=(int, 5432),   
+    DATABASE_PORT=(int, 5432),
+    AUTH0_CLIENT_ID=(str, ''),
+    AUTH0_CLIENT_SECRET=(str, ''),
+    AUTH0_DOMAIN=(str, '')
 )
 
 environ.Env.read_env()
 SECRET_KEY = env.str("SECRET_KEY")
+AUTH0_CLIENT_ID=env.str('AUTH0_CLIENT_ID')
+AUTH0_CLIENT_SECRET=env.str('AUTH0_CLIENT_SECRET')
+AUTH0_DOMAIN=env.str('AUTH0_DOMAIN')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -79,7 +87,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-        },
+     },
+        "DIRS": [TEMPLATE_DIR],
     },
 ]
 
@@ -136,11 +145,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_DIRS = [
-    "/home/special.party_up_api.com/party_up_api/static",
-    "/home/party_up_api.com/party_up_api/static",
-    "/opt/webfiles/common",
-]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -160,3 +164,15 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_WHITELIST = tuple(env.list("ALLOWED_ORIGINS"))
 CORS_ALLOW_ALL_ORIGINS = env.bool("ALLOW_ALL_ORIGINS")
+AUTH0_DOMAIN = os.environ.get("AUTH0_DOMAIN")
+AUTH0_CLIENT_ID = os.environ.get("AUTH0_CLIENT_ID")
+AUTH0_CLIENT_SECRET = os.environ.get("AUTH0_CLIENT_SECRET")
+
+
+# GET https://YOUR_DOMAIN/authorize?
+#   response_type=code|token&
+#   client_id=9nyv14CLwXNMGVP0myQmn0ChDQc3Xifs
+#   connection=
+#   redirect_uri=https://YOUR_APP/callback&
+#   state=STATE&
+#   ADDITIONAL_PARAMETERS
