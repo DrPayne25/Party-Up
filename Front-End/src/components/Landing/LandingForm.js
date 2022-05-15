@@ -70,7 +70,7 @@ const LandingForm = () => {
         <div>
             <h1>Got an account? Sign In!</h1>
             <form onSubmit={handleSubmit} noValidate>
-                <div>
+                {/* <div>
                     <label htmlFor="email">Email</label>
                     <input
                         type="email"
@@ -93,14 +93,12 @@ const LandingForm = () => {
                     />
                     {formErrors.password && <span>{formErrors.password}</span>}
                 </div>
-                <button type="submit">Sign In</button>
+                <button type="submit">Sign In</button> */}
                 <ToSignUp />
             </form>
-            <div>
+            {/* <div>
                 <AuthButton/>
-                {/* <LoginButton/>
-                <LogoutButton/> */}
-            </div>
+            </div> */}
         </div>
       );
 };
@@ -114,7 +112,7 @@ const ToSignUp = () => {
 
     return(
         <button type="button" onClick={handleClick}>
-            Sign Up
+            Start Playing - It's Free!
         </button> 
     )
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Header from '../Header';
+import Header from '../header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAuth0 } from '@auth0/auth0-react';
 
@@ -20,11 +20,13 @@ const Profile = () => {
                     <img src='http://placekitten.com/300/300' alt='' />
                 </ProfilePic>
                 <About>
-                    <h1>{first_name}</h1>
-                    <h2>{last_name}</h2>
-                    <h3>{username}</h3>
+                    <p>{first_name}</p>
+                    <p>{last_name}</p>
+                    <p>{username}</p>
                     <p>{email}</p>
-                    <p>{about_me}</p>                    
+                    <p>{about_me}</p>
+                    <p>Debug Info:</p>
+                    {JSON.stringify(user,null,2)}                    
                 </About>
                 <Post>
                     <form>

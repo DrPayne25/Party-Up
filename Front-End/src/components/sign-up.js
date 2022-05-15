@@ -1,3 +1,4 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import React, { useState, useEffect } from 'react';
 import { Form } from 'react-bootstrap';
 
@@ -8,6 +9,7 @@ const SignUp = () => {
     const [formValues, setFormValues] = useState(intialValues);
     const [formErrors, setFormErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const { loginWithRedirect } = useAuth0();
 
     const submit = () => {
         console.log(formValues)
@@ -23,6 +25,10 @@ const SignUp = () => {
         setFormErrors(validate(formValues));
         setIsSubmitting(true);
         axios.post('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users',formValues)
+        
+        loginWithRedirect({
+            screen_hint: 'signup'
+        })
     };
 
     const validate = (values) => {
