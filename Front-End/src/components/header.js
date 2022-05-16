@@ -1,14 +1,12 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 import AuthenticationButton from './auth-button';
 import styled from 'styled-components';
 
 const Header = () => {
 	return (
 		<div>
-
 			<Nav>
-
 				<nav>
 					<NavListWrap>
 						<NavList>
@@ -74,7 +72,6 @@ const Header = () => {
 							</div>
 						</NavList>
 					</NavListWrap>
-
 				</nav>
 			</Nav>
 		</div>

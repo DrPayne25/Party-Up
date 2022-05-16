@@ -2,6 +2,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import React, { useState, useEffect } from 'react';
 import { Form } from 'react-bootstrap';
 
+
 const SignUp = () => {
     const axios = require('axios').default;
     const intialValues = { first_name: '', last_name: '', email: '', username: '', password: '', dob: '', about_me: '' };
@@ -12,7 +13,16 @@ const SignUp = () => {
     const { loginWithRedirect } = useAuth0();
 
     const submit = () => {
-        console.log(formValues)
+        // change this to our deployed db later, make sure it is an .env variable
+        axios.post('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users', formValues)
+            .then((res => {
+                let data = res.data;
+            }))
+
+        loginWithRedirect({
+
+            screen_hint: formValues.email
+        })
     };
 
     const handleChange = (event) => {
@@ -24,17 +34,15 @@ const SignUp = () => {
         event.preventDefault();
         setFormErrors(validate(formValues));
         setIsSubmitting(true);
-        axios.post('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users',formValues)
-        
-        loginWithRedirect({
-            screen_hint: 'signup'
-        })
+        if(Object.keys(formErrors).length > 0){
+            setIsSubmitting(false);
+        }
     };
 
     const validate = (values) => {
         let errors = {};
         const emailregex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    
+
         if (!values.first_name) {
             errors.first_name = "Cannot be blank";
         }
@@ -65,8 +73,9 @@ const SignUp = () => {
         if (!values.about_me) {
             errors.about_me = "Cannot be blank";
         }
-    
-        return errors;
+
+        return errors
+
     };
 
     useEffect(() => {
@@ -74,7 +83,7 @@ const SignUp = () => {
             submit();
         }
     }, [formErrors]);
-    
+
     return (
         <div>
             {/* <h1>Got an account? Sign In!</h1> */}
