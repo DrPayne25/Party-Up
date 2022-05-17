@@ -7,6 +7,10 @@ const LandingPage = () => {
     const { user, isAuthenticated, isLoading } = useAuth0();
     const { first_name, last_name, username, email, about_me } = user;
 
+    if (isLoading) {
+        return <div>Loading ...</div>;
+    }
+    
     if (!isAuthenticated){
         return (
             <div>
@@ -21,7 +25,11 @@ const LandingPage = () => {
             <div>
                 <Header />
                 <h1>Partying On a Tuesday, Eh Lou?</h1>
+                <p>{first_name}</p>
+                <p>{last_name}</p>
+                <p>{username}</p>
                 <p>{email}</p>
+                <p>{about_me}</p>
                 
             </div>
         )
