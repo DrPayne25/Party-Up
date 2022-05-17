@@ -4,7 +4,8 @@ import Header from '../header';
 import { useAuth0 } from "@auth0/auth0-react"; 
 
 const LandingPage = () => {
-    const { isAuthenticated } = useAuth0();
+    const { user, isAuthenticated, isLoading } = useAuth0();
+    const { first_name, last_name, username, email, about_me } = user;
 
     if (!isAuthenticated){
         return (
@@ -20,6 +21,7 @@ const LandingPage = () => {
             <div>
                 <Header />
                 <h1>Partying On a Tuesday, Eh Lou?</h1>
+                <p>{email}</p>
                 
             </div>
         )
