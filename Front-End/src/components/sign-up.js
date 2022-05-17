@@ -1,4 +1,3 @@
-import { useAuth0 } from '@auth0/auth0-react';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form } from 'react-bootstrap';
@@ -19,7 +18,7 @@ const SignUp = () => {
         // change this to our deployed db later, make sure it is an .env variable
         axios.post('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users', formValues)
             .then((res => {
-                let data = res.data;
+                // let data = res.data;
             }))
 
         navigate('/signup')
