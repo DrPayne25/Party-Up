@@ -19,9 +19,7 @@ const Header = () => {
 						<NavList>
 							<NavLink
 								to="/"
-								exact
 								className="nav-link"
-								activeClassName="router-link-exact-active"
 							>
 								Home
 							</NavLink>
@@ -29,9 +27,7 @@ const Header = () => {
 						<NavList>
 							<NavLink
 								to="/profile"
-								exact
 								className="nav-link"
-								activeClassName="router-link-exact-active"
 							>
 								My Profile
 							</NavLink>
@@ -39,9 +35,7 @@ const Header = () => {
 						<NavList>
 							<NavLink
 								to="/feed"
-								exact
 								className="nav-link"
-								activeClassName="router-link-exact-active"
 							>
 								My Feed
 							</NavLink>
@@ -49,9 +43,7 @@ const Header = () => {
 						<NavList>
 							<NavLink
 								to="/friends"
-								exact
 								className="nav-link"
-								activeClassName="router-link-exact-active"
 							>
 								Friends
 							</NavLink>
@@ -59,9 +51,7 @@ const Header = () => {
 						<NavList>
 							<NavLink
 								to="/about"
-								exact
 								className="nav-link"
-								activeClassName="router-link-exact-active"
 							>
 								About
 							</NavLink>
@@ -77,23 +67,6 @@ const Header = () => {
 		</div>
 	)
 }
-
-// const Container = styled.div`
-//     background-color: gray;
-// 	padding: 0 24px;
-// 	position: sticky;
-// 	top: 0;
-// 	left: 0;
-// 	/* width: 100vw; */
-// 	z-index: 10;
-// `
-// const Content = styled.div`
-// 	display: flex;
-// 	align-items: center;
-// 	margin: 0 auto;
-// 	height: 100%;
-// 	max-width: 1128px;
-// `;
 
 const Search = styled.div`
 	opacity: 1;

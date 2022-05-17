@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './auth/protected-route.js';
 import React from 'react';
-import Landing from './components/Landing/Landing.js';
+import Landing from './components/Landing/landing-page.js';
 import SignUp from './components/sign-up.js';
-import Feed from './components/Profile/Feed.js';
-import Profile from './components/Profile/Profile.js';
+import Feed from './components/Profile/feed.js';
+import Profile from './components/Profile/profile.js';
 import FriendsList from './components/Profile/friends-list.js';
 import About from './components/about'
 import { useAuth0 } from '@auth0/auth0-react';

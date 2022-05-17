@@ -1,19 +1,27 @@
 import React from 'react';
-import styled from 'styled-components'
-import LandingForm from '../Landing/LandingForm';
+import SignupButton from './sign-up-button';
 import Header from '../header';
-import { useAuth0 } from "@auth0/auth0-react";
 
-const Landing = () => {
+
+const LandingPage = () => {
     return (
         <div>
             <Header />
-                <h1>Party Up!</h1>
-                <img src='http://placekitten.com/700/670' alt='' />
-            <LandingForm />
+            <h1>Party Up!</h1>
+            <img src='http://placekitten.com/700/670' alt='' />
+            <SignupButton />
         </div>
     )
 }
+
+export default LandingPage;
+
+
+//<-----------------CLEAN UP------------------------>//
+//                 old code / css
+
+// import { useAuth0 } from "@auth0/auth0-react";
+// import styled from 'styled-components'
 
 // const Landing = () => {
 //     return (
@@ -127,5 +135,3 @@ const Landing = () => {
 // 		}
 //     }
 // `
-
-export default Landing;

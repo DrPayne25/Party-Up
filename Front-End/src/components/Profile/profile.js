@@ -20,7 +20,7 @@ const Profile = () => {
 
         let data ;
         // change this to our deployed db later, make sure it is an .env variable  
-        axios.get('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users/bob_dole_is_swole')
+        axios.get('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users/')
         .then(res => {
             data = res.data;
             console.log(data)
