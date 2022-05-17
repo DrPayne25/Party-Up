@@ -1,5 +1,8 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Form } from 'react-bootstrap';
+
 
 const SignUp = () => {
     const axios = require('axios').default;
@@ -9,8 +12,17 @@ const SignUp = () => {
     const [formErrors, setFormErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
 
+    const navigate = useNavigate();
+    
+
     const submit = () => {
-        console.log(formValues)
+        // change this to our deployed db later, make sure it is an .env variable
+        axios.post('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users', formValues)
+            .then((res => {
+                let data = res.data;
+            }))
+
+        navigate('/signup')
     };
 
     const handleChange = (event) => {
@@ -22,45 +34,58 @@ const SignUp = () => {
         event.preventDefault();
         setFormErrors(validate(formValues));
         setIsSubmitting(true);
-        axios.post('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users',formValues)
+        checkDuplicateEmail();
+        if (Object.keys(formErrors).length > 0) {
+            setIsSubmitting(false);
+        }
     };
+
+    const checkDuplicateEmail = () => {
+        console.log('CHECKED FOR EMAIL' + formValues.email)
+        try {
+
+            // change this to our deployed db later, make sure it is an .env variable  
+            axios.get('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users/?email=' + formValues.email)
+                .then(res => {
+                    console.log('CHECKED FOR EMAIL')
+                    if (res.data) {
+                        setIsSubmitting(false);
+                        alert('THIS EMAIL IS CURRENTLY IN USE WITH A DIFFERENT ACCOUNT!')
+                    }
+                })
+        } catch {
+            alert('You must give a valid email to continue')
+        }
+    }
 
     const validate = (values) => {
         let errors = {};
         const emailregex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    
-        if (!values.first_name) {
-            errors.first_name = "Cannot be blank";
-        }
-        if (!values.last_name) {
-            errors.last_name = "Cannot be blank";
-        }
+
         if (!values.email) {
-            errors.email = "Cannot be blank";
+            errors.email = "EMAIL - Cannot be blank";
         } else if (!emailregex.test(values.email)) {
             errors.email = "Invalid email format";
         }
         if (!values.username) {
-            errors.username = "Cannot be blank";
+            errors.username = "USERNAME - Cannot be blank";
         }
         if (!values.password) {
-            errors.password = "Cannot be blank";
+            errors.password = "PASSWORD - Cannot be blank";
         } else if (values.password.length < 4) {
             errors.password = "Password must be more than 4 characters";
         }
         if (!values.confirm) {
-            errors.confirm = "Cannot be blank";
+            errors.confirm = "PASSWORD - Cannot be blank";
         } else if (values.confirm !== values.password) {
-            errors.confirm = "Does not match!"
+            errors.confirm = "PASSWORDS MUST MATCH!"
         }
         if (!values.dob) {
-            errors.dob = "Cannot be blank";
+            errors.dob = "DATE OF BIRTH - Cannot be blank";
         }
-        if (!values.about_me) {
-            errors.about_me = "Cannot be blank";
-        }
-    
-        return errors;
+
+        return errors
+
     };
 
     useEffect(() => {
@@ -68,7 +93,7 @@ const SignUp = () => {
             submit();
         }
     }, [formErrors]);
-    
+
     return (
         <div>
             {/* <h1>Got an account? Sign In!</h1> */}
