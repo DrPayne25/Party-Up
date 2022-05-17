@@ -27,7 +27,7 @@ const Auth0ProviderWithHistory = ({ children }) => {
     <Auth0Provider
       domain={domain}
       clientId={clientId}
-      redirectUri={'https://partyup.netlify.app'}
+      redirectUri={'https://partyup.netlify.app/profile'}
       onRedirectCallback={onRedirectCallback}
       audience={audience}
     >
