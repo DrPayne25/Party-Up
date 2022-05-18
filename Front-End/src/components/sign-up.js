@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 
 
-const SignUp = (userValues) => {
+const SignUp = () => {
+    const location = useLocation();
     const axios = require('axios').default;
-    const intialValues = { first_name: '', last_name: '', username: '', email: userValues.email, dob: '', about_me: '', prof_comp: true };
+    const intialValues = { first_name: '', last_name: '', username: '', email: location.state.newUser.email, dob: '', about_me: '', prof_comp: true };
 
     const [formValues, setFormValues] = useState(intialValues);
     const [formErrors, setFormErrors] = useState({});

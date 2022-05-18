@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SignupButton from './sign-up-button';
 import Header from '../header';
-import party_up_logo from '../../assets/party_up_logo.png'
+// import party_up_logo from '../../assets/party_up_logo.png'
 import { Card, Button } from 'react-bootstrap';
 import { useAuth0 } from "@auth0/auth0-react";
 import ProfComplButton from '../Profile/profile-complete-button'
@@ -10,60 +10,68 @@ import axios from 'axios';
 
 const LandingPage = () => {
     const { user, isAuthenticated, isLoading } = useAuth0();
-    
-    
     const intialValues = { logged_in: false, first_name: '', last_name: '', email: '', username: '', dob: '', about_me: '', currency: 0, prof_comp: false };
     const [userValues, setUserValues] = useState(intialValues);
     // const [errorMessage, setErrorMessage] = useState({});
-
-
 
     useEffect(() => {
         const findUser = async () => {
             if (isAuthenticated) {
                 // const { email } = user;
-                
+
                 let data;
                 // change this to our deployed db later, make sure it is an .env variable  
-                await axios.get('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users/?email='+user.email)
+                await axios.get('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users/?email=' + user.email)
                     .then(res => {
                         data = res.data;
-                        
-                        if (data[0].email === user.email) {
-                            
-                            try {
-                                const newValues = { 
+                        try {
+                            if (data[0].email === user.email) {
+
+                                const newValues = {
                                     logged_in: data[0].logged_in,
                                     first_name: data[0].first_name,
                                     last_name: data[0].last_name,
-                                    email: data[0].email,
+                                    email: user.email,
                                     username: data[0].username,
                                     dob: data[0].dob,
                                     about_me: data[0].about_me,
                                     currency: data[0].currency,
-                                    prof_comp: data[0].prof_comp };
+                                    prof_comp: data[0].prof_comp
+                                };
 
                                 setUserValues(newValues)
-                                console.log(newValues)
-                                                                
+                            } else {
+                                setUserValues(userValues.prof_comp = false)
                             }
-                            catch {
-                                
-                                setUserValues(  userValues.prof_comp = false )
-                            }
+                        }
+                        catch {
+                            const newValues = {
+                                logged_in: false,
+                                first_name: '',
+                                last_name: '',
+                                email: user.email,
+                                username: '',
+                                dob: '',
+                                about_me: '',
+                                currency: 0,
+                                prof_comp: false
+                            };
+
+                            setUserValues(newValues)
                         }
                     })
             }
         }
-        
+
         findUser().catch(console.error);
-    },[user]);
+    }, [user]);
 
     if (isLoading) {
         return <div>Loading ...</div>;
     }
 
     if (isAuthenticated) {
+        console.log(userValues)
         return (
             <div>
                 <Header />
@@ -87,15 +95,15 @@ const LandingPage = () => {
                 <Card style={{ width: '20rem' }}>
                     <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZSZP3BRkh8Tyllj0wCqKUVS-dJPA8mY21Q&usqp=CAU" />
                     <Card.Body>
-                    <Card.Title>HearthStone</Card.Title>
-                    <Card.Text>
-                        A card game that brings the magical experience of W.O.W into a card game.
-                    </Card.Text>
-                    <Button variant="primary" onclick="location.href='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZSZP3BRkh8Tyllj0wCqKUVS-dJPA8mY21Q&usqp=CAU'">Go somewhere</Button>
+                        <Card.Title>HearthStone</Card.Title>
+                        <Card.Text>
+                            A card game that brings the magical experience of W.O.W into a card game.
+                        </Card.Text>
+                        <Button variant="primary" onclick="location.href='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZSZP3BRkh8Tyllj0wCqKUVS-dJPA8mY21Q&usqp=CAU'">Go somewhere</Button>
                     </Card.Body>
                 </Card>
             </div>
-        </div> 
+        </div>
     )
 }
 

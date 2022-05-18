@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 
 const SignUpButton = () => { 
     const { loginWithRedirect } = useAuth0();
-
+    
     const handleClick = () => {
         loginWithRedirect({
             screen_hint: "signup",
