@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth import get_user_model
 
 class Profile(models.Model):
   first_name = models.CharField(max_length=128)
@@ -10,6 +9,7 @@ class Profile(models.Model):
   dob = models.DateField()
   about_me = models.TextField(blank=True)
   currency = models.IntegerField(default=0)
+  profile_complete = models.BooleanField(False)
 
   def __str__(self):
       return f'{self.username}'

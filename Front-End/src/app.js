@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './auth/protected-route.js';
 import React from 'react';
 import Landing from './components/Landing/landing-page.js';
@@ -41,8 +41,8 @@ const App = () => {
                     path='/profile'
                     element={
                         <ProtectedRoute isAuth={isAuthenticated}>
-                            <Profile />
-                        </ProtectedRoute>
+                        <Profile />
+                    </ProtectedRoute> 
                     }
                 />
                 <Route

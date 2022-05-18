@@ -1,10 +1,79 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SignupButton from './sign-up-button';
 import Header from '../header';
 import party_up_logo from '../../assets/party_up_logo.png'
 import { Card, Button } from 'react-bootstrap';
+import { useAuth0 } from "@auth0/auth0-react";
+import ProfComplButton from '../Profile/profile-complete-button'
+import axios from 'axios';
+
 
 const LandingPage = () => {
+    const { user, isAuthenticated, isLoading } = useAuth0();
+    
+    
+    const intialValues = { logged_in: false, first_name: '', last_name: '', email: '', username: '', dob: '', about_me: '', currency: 0, prof_comp: false };
+    const [userValues, setUserValues] = useState(intialValues);
+    // const [errorMessage, setErrorMessage] = useState({});
+
+
+
+    useEffect(() => {
+        const findUser = async () => {
+            if (isAuthenticated) {
+                // const { email } = user;
+                
+                let data;
+                // change this to our deployed db later, make sure it is an .env variable  
+                await axios.get('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users/1')
+                    .then(res => {
+                        data = res.data;
+
+                        if (data.email === user.email) {
+                            try {
+                                const newValues = { 
+                                    logged_in: data.logged_in,
+                                    first_name: data.first_name,
+                                    last_name: data.last_name,
+                                    email: data.email,
+                                    username: data.username,
+                                    dob: data.dob,
+                                    about_me: data.about_me,
+                                    currency: data.currency,
+                                    prof_comp: data.prof_comp };
+
+                                setUserValues(newValues)                                
+                            }
+                            catch {
+                                setUserValues(  userValues.prof_comp = false )
+                            }
+                        }
+                    })
+            }
+        }
+        
+        findUser().catch(console.error);
+    },[user]);
+
+    if (isLoading) {
+        return <div>Loading ...</div>;
+    }
+
+    if (isAuthenticated) {
+        return (
+            <div>
+                <Header />
+                <h1>Partying On a Tuesday, Eh Lou?</h1>
+                <ProfComplButton isComplete={userValues} />
+                <p>First Name: {userValues.first_name}</p>
+                <p>Last Name: {userValues.last_name}</p>
+                <p>Handle: {userValues.username}</p>
+                <p>Email: {userValues.email}</p>
+                <p>About Myself: {userValues.about_me}</p>
+                <p>I got ${userValues.currency} in site bucks.</p>
+            </div>
+        )
+    }
     return (
         <div className='landing-background'>
             <Header />
@@ -27,123 +96,3 @@ const LandingPage = () => {
 }
 
 export default LandingPage;
-
-
-//<-----------------CLEAN UP------------------------>//
-//                 old code / css
-
-// import { useAuth0 } from "@auth0/auth0-react";
-// import styled from 'styled-components'
-
-// const Landing = () => {
-//     return (
-//         <Container>
-//             <Nav>
-//                 <NavLink
-//                     to="/"
-//                     exact
-//                     className="nav-link"
-//                     activeClassName="router-link-exact-active"
-//                 >
-//                     Home
-//                 </NavLink>
-//                 <NavLink
-//                     to="/profile"
-//                     exact
-//                     className="nav-link"
-//                     activeClassName="router-link-exact-active"
-//                 >
-//                     Profile
-//                 </NavLink>
-
-//                 {/* <a href='/'>
-//                     <img src='http://placekitten.com/135/45' alt='' />
-//                 </a> */}
-//                 <div>
-//                     <About>About</About>
-//                 </div>
-//             </Nav>
-//             <Section>
-//                 <Hero>
-//                     <h1>Party Up!</h1>
-//                     <img src='http://placekitten.com/700/670' alt='' />
-//                 </Hero>
-//                 <LandingForm />
-//             </Section>
-//         </Container>
-//     )
-// }
-
-// const Container = styled.div`
-//     padding: 0px;
-// `;
-
-// const Nav = styled.div`
-//     max-width: 1128px;
-//     margin: auto;
-//     padding: 12px 0 16px;
-//     display: flex;
-//     align-items:center;
-//     position: relative;
-//     justify-content: space-between;
-//     flex-wrap: nowrap;
-//     background-color: gray
-// `;
-
-// const About = styled.div`
-//     font-size: 16px;
-//     padding: 10px 12px;
-//     text-decoration: none;
-//     &:hover {
-//         background-color: rgba(0, 0, 0, 0.5)
-//     }
-// `
-
-// const Section = styled.section`
-//     display: flex;
-//     align-content: start;
-//     min-height: 700px;
-//     padding-bottom: 138px;
-//     padding-top: 40px;
-//     padding: 60px 0;
-//     position: relative;
-//     flex-wrap: wrap;
-//     width: 100%;
-//     max-width: 1128px;
-//     align-items: center;
-//     margin: auto;
-//     @media (max-width: 768px) {
-// 		min-height: 0;
-// 	}
-// `
-
-// const Hero = styled.div`
-//     width: 100%;
-//     h1 {
-//         padding-bottom: 0;
-//         width: 55%;
-//         font-size: 56px;
-//         font-weight: 200;
-//         line-height: 70px;
-//         @media (max-width: 768px) {
-// 			text-align: center;
-// 			width: 100%;
-// 			font-size: 20px;
-// 			line-height: 2;
-// 		}
-//     }
-//     img {
-//         z-index: -1;
-// 		width: 500px;
-// 		height: 570px;
-// 		position: absolute;
-// 		bottom: -2px;
-//         right: 150;
-// 		@media (max-width: 768px) {
-// 			top: 230px;
-// 			position: initial;
-// 			width: initial;
-// 			height: initial;
-// 		}
-//     }
-// `
