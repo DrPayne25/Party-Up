@@ -61,7 +61,7 @@ const LandingPage = () => {
             <div>
                 <Header />
                 <h1>Partying On a Tuesday, Eh Lou?</h1>
-                <ProfComplButton isComplete={userValues} />
+                <ProfComplButton userValues={userValues} />
                 <p>First Name: {userValues.first_name}</p>
                 <p>Last Name: {userValues.last_name}</p>
                 <p>Handle: {userValues.username}</p>

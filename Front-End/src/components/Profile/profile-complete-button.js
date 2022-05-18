@@ -2,17 +2,17 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 
 const ProfileCompleteButton = (userValues) => { 
-  const ButtonLogic = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   
-    return (
-      <button onClick={() => navigate('/signup', {userValues: "userValues"})}>
-        Finish Your Profile!
-      </button>
-    )
-  }
-   
-  return userValues.isComplete ? <ButtonLogic /> : null;
+    if (userValues.userValues.prof_comp === false) {
+      return (
+        <button onClick={() => navigate('/signup', { userValues: "userValues" })}>
+          Finish Your Profile!
+        </button>
+      )
+    }  
+
+  return  ;
 };
 
 
