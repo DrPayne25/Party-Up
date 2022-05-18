@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import SignupButton from './sign-up-button';
 import Header from '../header';
+import party_up_logo from '../../assets/party_up_logo.png'
+import { Card, Button } from 'react-bootstrap';
 import { useAuth0 } from "@auth0/auth0-react";
 import ProfComplButton from '../Profile/profile-complete-button'
 import axios from 'axios';
+
 
 const LandingPage = () => {
     const { user, isAuthenticated, isLoading } = useAuth0();
@@ -71,14 +74,24 @@ const LandingPage = () => {
             </div>
         )
     }
-
     return (
-        <div>
-            <Header userValues={userValues} />
+        <div className='landing-background'>
+            <Header />
             <h1>Party Up!</h1>
-            <img src='http://placekitten.com/700/670' alt='' />
             <SignupButton />
-        </div>
+            <div className='card-style'>
+                <Card style={{ width: '20rem' }}>
+                    <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZSZP3BRkh8Tyllj0wCqKUVS-dJPA8mY21Q&usqp=CAU" />
+                    <Card.Body>
+                    <Card.Title>HearthStone</Card.Title>
+                    <Card.Text>
+                        A card game that brings the magical experience of W.O.W into a card game.
+                    </Card.Text>
+                    <Button variant="primary" onclick="location.href='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZSZP3BRkh8Tyllj0wCqKUVS-dJPA8mY21Q&usqp=CAU'">Go somewhere</Button>
+                    </Card.Body>
+                </Card>
+            </div>
+        </div> 
     )
 }
 

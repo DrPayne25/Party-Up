@@ -10,6 +10,7 @@
     "auth-lib": "^1.0.0",
     "axios": "^0.27.2",
     "bootstrap": "^5.1.3",
+    "bulma": "^0.9.4",
     "react": "^18.1.0",
     "react-bootstrap": "^2.3.1",
     "react-dom": "^18.1.0",

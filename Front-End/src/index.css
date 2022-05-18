@@ -50,3 +50,37 @@ body {
 		opacity: 1;
 	}
 }
+
+.about-text {
+  color: black;
+	margin-left: 50%;
+	margin-bottom: 10%;
+}
+
+.carousel-about {
+	background-color: rgb(178, 184, 209);
+}
+
+.party-up-logo {
+	fill: rgb(247, 243, 255);
+	margin-right: 45px;
+	width: 160px;
+	height: 80px;
+}
+
+.about-main {
+	background-color: rgb(254, 253, 255);
+}
+
+.about-border {
+	border:rgb(82, 105, 195);
+	border-style: groove;
+}
+
+.landing-background {
+	background-color: rgb(171, 196, 245);
+}
+
+.card-style {
+	margin-top: 50px;
+}
