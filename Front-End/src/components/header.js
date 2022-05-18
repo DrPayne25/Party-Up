@@ -7,7 +7,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
   
-const Header = () => {
+const Header = userValues => {
 	const { isAuthenticated } = useAuth0();
 
 	if(isAuthenticated){
@@ -34,6 +34,7 @@ const Header = () => {
 							<NavList>
 								<NavLink
 									to="/profile"
+									state={{ userValues: userValues }}
 									className="nav-link"
 								>
 									My Profile
@@ -57,7 +58,7 @@ const Header = () => {
 							</NavList>
 							<NavList>
 								<div>
-									<AuthenticationButton />
+									<AuthenticationButton userValues={userValues} />
 								</div>
 							</NavList>
 						</NavListWrap>

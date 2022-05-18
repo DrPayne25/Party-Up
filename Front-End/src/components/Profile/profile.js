@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect  } from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from '../header';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -6,6 +7,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 // import post_modal from './profile-post-modal';
 
 const Profile = () => {
+    const location = useLocation();
+    console.log(location.state)
     const { user, isAuthenticated, isLoading } = useAuth0();
     const { first_name, last_name, username, email, about_me } = user;
 

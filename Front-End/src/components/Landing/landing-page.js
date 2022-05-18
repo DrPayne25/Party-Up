@@ -28,7 +28,7 @@ const LandingPage = () => {
                             if (data[0].email === user.email) {
 
                                 const newValues = {
-                                    logged_in: data[0].logged_in,
+                                    logged_in: true,
                                     first_name: data[0].first_name,
                                     last_name: data[0].last_name,
                                     email: user.email,
@@ -40,6 +40,12 @@ const LandingPage = () => {
                                 };
 
                                 setUserValues(newValues)
+                                console.log(userValues)
+                                // change this to our deployed db later, make sure it is an .env variable
+                                axios.put('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users/'+data[0].id, {logged_in: true})
+                                    .then((res => {
+                                        console.log('updated?')
+                                    }))
                             } else {
                                 setUserValues(userValues.prof_comp = false)
                             }
@@ -71,11 +77,9 @@ const LandingPage = () => {
     }
 
     if (isAuthenticated) {
-        console.log(userValues)
         return (
-            <div>
-                <Header />
-                <h1>Partying On a Tuesday, Eh Lou?</h1>
+            <div className='landing-background'>
+                <Header userValues={userValues} />
                 <ProfComplButton userValues={userValues} />
                 <p>First Name: {userValues.first_name}</p>
                 <p>Last Name: {userValues.last_name}</p>
@@ -83,6 +87,18 @@ const LandingPage = () => {
                 <p>Email: {user.email}</p>
                 <p>About Myself: {userValues.about_me}</p>
                 <p>I got ${userValues.currency} in site bucks.</p>
+                <div className='card-style'>
+                    <Card style={{ width: '20rem' }}>
+                        <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZSZP3BRkh8Tyllj0wCqKUVS-dJPA8mY21Q&usqp=CAU" />
+                        <Card.Body>
+                            <Card.Title>HearthStone</Card.Title>
+                            <Card.Text>
+                                A card game that brings the magical experience of W.O.W into a card game.
+                            </Card.Text>
+                            <Button variant="primary" onClick="location.href='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZSZP3BRkh8Tyllj0wCqKUVS-dJPA8mY21Q&usqp=CAU'">Go somewhere</Button>
+                        </Card.Body>
+                    </Card>
+                </div>
             </div>
         )
     }
