@@ -2,7 +2,9 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 import AuthenticationButton from './auth-button';
 import styled from 'styled-components';
+import party_up_logo from '../assets/party_up_logo.png'
 import { useAuth0 } from "@auth0/auth0-react";
+
 
   
 const Header = () => {

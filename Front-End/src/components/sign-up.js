@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 
 const SignUp = (userValues) => {
@@ -135,7 +135,7 @@ const SignUp = (userValues) => {
                     />
                     {formErrors.about_me && <span>{formErrors.about_me}</span>}
                 </div>
-                <button type="submit">Sign Up!</button>
+                <Button variant="primary" type="submit">Sign Up!</Button>
             </Form>
         </div>
     );
