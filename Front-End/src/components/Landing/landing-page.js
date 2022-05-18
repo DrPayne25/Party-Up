@@ -22,26 +22,30 @@ const LandingPage = () => {
                 
                 let data;
                 // change this to our deployed db later, make sure it is an .env variable  
-                await axios.get('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users/1')
+                await axios.get('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users/?email='+user.email)
                     .then(res => {
                         data = res.data;
-
-                        if (data.email === user.email) {
+                        
+                        if (data[0].email === user.email) {
+                            
                             try {
                                 const newValues = { 
-                                    logged_in: data.logged_in,
-                                    first_name: data.first_name,
-                                    last_name: data.last_name,
-                                    email: data.email,
-                                    username: data.username,
-                                    dob: data.dob,
-                                    about_me: data.about_me,
-                                    currency: data.currency,
-                                    prof_comp: data.prof_comp };
+                                    logged_in: data[0].logged_in,
+                                    first_name: data[0].first_name,
+                                    last_name: data[0].last_name,
+                                    email: data[0].email,
+                                    username: data[0].username,
+                                    dob: data[0].dob,
+                                    about_me: data[0].about_me,
+                                    currency: data[0].currency,
+                                    prof_comp: data[0].prof_comp };
 
-                                setUserValues(newValues)                                
+                                setUserValues(newValues)
+                                console.log(newValues)
+                                                                
                             }
                             catch {
+                                
                                 setUserValues(  userValues.prof_comp = false )
                             }
                         }
@@ -65,7 +69,7 @@ const LandingPage = () => {
                 <p>First Name: {userValues.first_name}</p>
                 <p>Last Name: {userValues.last_name}</p>
                 <p>Handle: {userValues.username}</p>
-                <p>Email: {userValues.email}</p>
+                <p>Email: {user.email}</p>
                 <p>About Myself: {userValues.about_me}</p>
                 <p>I got ${userValues.currency} in site bucks.</p>
             </div>

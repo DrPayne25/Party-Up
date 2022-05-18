@@ -5,7 +5,7 @@ import { Form } from 'react-bootstrap';
 
 const SignUp = (userValues) => {
     const axios = require('axios').default;
-    const intialValues = { first_name: '', last_name: '', username: '', dob: '', about_me: '', prof_comp: true };
+    const intialValues = { first_name: '', last_name: '', username: '', email: userValues.email, dob: '', about_me: '', prof_comp: true };
 
     const [formValues, setFormValues] = useState(intialValues);
     const [formErrors, setFormErrors] = useState({});
@@ -21,7 +21,7 @@ const SignUp = (userValues) => {
                 // let data = res.data;
             }))
 
-        navigate('/landing-page')
+        navigate('/')
     };
 
     const handleChange = (event) => {
