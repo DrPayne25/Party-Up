@@ -1,0 +1,61 @@
+.chatbox {
+    display: flex;
+    flex-direction: column;
+    flex: 0.75;
+    background-color: #363a3f;
+    height: 100vh;
+}
+
+.chatbox-messages {
+    flex: 1;
+}
+
+.chatbox-input {
+    color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px;
+    border-top: 1px solid gray;
+    background-color: #474b53;
+}
+
+.chatbox-input > form > input {
+    padding: 15px;
+    background: transparent;
+    border: none;
+    outline-width: 0;
+    color: white;
+    font-size: large;
+    width: 100%;
+}
+
+.chatbox-input > form {
+    flex: 1;
+}
+
+.chatbox-send-button {
+    display: none;
+}
+
+.chatbox-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+    padding: 10px;
+}
+
+.chatbox-header > h3 {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.chatbox-header-hash {
+    color: gray;
+    font-size: 30px;
+    padding: 10px;
+}
