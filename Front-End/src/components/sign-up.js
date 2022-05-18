@@ -1,7 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 
 const SignUp = () => {
@@ -185,7 +185,7 @@ const SignUp = () => {
                     />
                     {formErrors.about_me && <span>{formErrors.about_me}</span>}
                 </div>
-                <button type="submit">Sign Up!</button>
+                <Button variant="primary" type="submit">Sign Up!</Button>
             </Form>
         </div>
     );

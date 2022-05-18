@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink, Navigate } from "react-router-dom";
 import AuthenticationButton from './auth-button';
 import styled from 'styled-components';
+import party_up_logo from '../assets/party_up_logo.png'
 
 const Header = () => {
 	return (
@@ -10,6 +11,10 @@ const Header = () => {
 				<nav>
 					<NavListWrap>
 						<NavList>
+							<img
+							className='party-up-logo'
+							src={party_up_logo}
+							/>
 							<Search>
 								<div>
 									<input type="text" placeholder="Search" />

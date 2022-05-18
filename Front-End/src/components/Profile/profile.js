@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Header from '../header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAuth0 } from '@auth0/auth0-react';
+// import post_modal from './profile-post-modal';
 
 const Profile = () => {
     const { user, isAuthenticated, isLoading } = useAuth0();
@@ -49,7 +50,7 @@ const Profile = () => {
                     <p>{email}</p>
                     <p>{about_me}</p>
                     <p>Debug Info:</p>
-                    {JSON.stringify(user,null,2)}                    
+                    {/* {JSON.stringify(user,null,2)}                     */}
                 </About>
                 <Post>
                     <form>
