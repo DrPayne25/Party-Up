@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Header from '../header';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,9 +9,9 @@ const Profile = () => {
     const { first_name, last_name, username, email, about_me } = user;
 
     const axios = require('axios').default;
-    const intialValues = { first_name: '', last_name: '', email: '', username: '', password: '', dob: '', about_me: '' };
+    // const intialValues = { first_name: '', last_name: '', email: '', username: '', password: '', dob: '', about_me: '' };
 
-    const [userValues, setUserValues] = useState(intialValues);
+    // const [userValues, setUserValues] = useState(intialValues);
 
     useEffect(() => {
         // function handleStatusChange(status) {
@@ -20,7 +20,7 @@ const Profile = () => {
 
         let data ;
         // change this to our deployed db later, make sure it is an .env variable  
-        axios.get('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users/')
+        axios.get('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users/?email=' + user.email)
         .then(res => {
             data = res.data;
             console.log(data)

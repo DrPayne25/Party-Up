@@ -1,71 +1,109 @@
 import React from 'react';
-import { NavLink, Navigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import AuthenticationButton from './auth-button';
 import styled from 'styled-components';
+import { useAuth0 } from "@auth0/auth0-react";
 
+  
 const Header = () => {
-	return (
-		<div>
-			<Nav>
-				<nav>
-					<NavListWrap>
-						<NavList>
-							<Search>
+	const { isAuthenticated } = useAuth0();
+
+	if(isAuthenticated){
+		return (
+			<div>
+				<Nav>
+					<nav>
+						<NavListWrap>
+							<NavList>
+								<Search>
+									<div>
+										<input type="text" placeholder="Search" />
+									</div>
+								</Search>
+							</NavList>
+							<NavList>
+								<NavLink
+									to="/"
+									className="nav-link"
+								>
+									My Feed
+								</NavLink>
+							</NavList>
+							<NavList>
+								<NavLink
+									to="/profile"
+									className="nav-link"
+								>
+									My Profile
+								</NavLink>
+							</NavList>
+							<NavList>
+								<NavLink
+									to="/friends"
+									className="nav-link"
+								>
+									Friends
+								</NavLink>
+							</NavList>
+							<NavList>
+								<NavLink
+									to="/about"
+									className="nav-link"
+								>
+									About
+								</NavLink>
+							</NavList>
+							<NavList>
 								<div>
-									<input type="text" placeholder="Search" />
+									<AuthenticationButton />
 								</div>
-							</Search>
-						</NavList>
-						<NavList>
-							<NavLink
-								to="/"
-								className="nav-link"
-							>
-								Home
-							</NavLink>
-						</NavList>
-						<NavList>
-							<NavLink
-								to="/profile"
-								className="nav-link"
-							>
-								My Profile
-							</NavLink>
-						</NavList>
-						<NavList>
-							<NavLink
-								to="/feed"
-								className="nav-link"
-							>
-								My Feed
-							</NavLink>
-						</NavList>
-						<NavList>
-							<NavLink
-								to="/friends"
-								className="nav-link"
-							>
-								Friends
-							</NavLink>
-						</NavList>
-						<NavList>
-							<NavLink
-								to="/about"
-								className="nav-link"
-							>
-								About
-							</NavLink>
-						</NavList>
-						<NavList>
-							<div>
-								<AuthenticationButton />
-							</div>
-						</NavList>
-					</NavListWrap>
-				</nav>
-			</Nav>
-		</div>
-	)
+							</NavList>
+						</NavListWrap>
+					</nav>
+				</Nav>
+			</div>
+		)
+	}else{
+		return (
+			<div>
+				<Nav>
+					<nav>
+						<NavListWrap>
+							<NavList>
+								<Search>
+									<div>
+										<input type="text" placeholder="Search" />
+									</div>
+								</Search>
+							</NavList>
+							<NavList>
+								<NavLink
+									to="/"
+									className="nav-link"
+								>
+									Home
+								</NavLink>
+							</NavList>						
+							<NavList>
+								<NavLink
+									to="/about"
+									className="nav-link"
+								>
+									About
+								</NavLink>
+							</NavList>
+							<NavList>
+								<div>
+									<AuthenticationButton />
+								</div>
+							</NavList>
+						</NavListWrap>
+					</nav>
+				</Nav>
+			</div>
+		)
+	}
+	
 }
 
 const Search = styled.div`

@@ -1,12 +1,11 @@
-import { useAuth0 } from '@auth0/auth0-react';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form } from 'react-bootstrap';
 
 
-const SignUp = () => {
+const SignUp = (userValues) => {
     const axios = require('axios').default;
-    const intialValues = { first_name: '', last_name: '', email: '', username: '', password: '', dob: '', about_me: '' };
+    const intialValues = { first_name: '', last_name: '', username: '', dob: '', about_me: '', prof_comp: true };
 
     const [formValues, setFormValues] = useState(intialValues);
     const [formErrors, setFormErrors] = useState({});
@@ -15,14 +14,14 @@ const SignUp = () => {
     const navigate = useNavigate();
     
 
-    const submit = () => {
+    const submit = async () => {
         // change this to our deployed db later, make sure it is an .env variable
-        axios.post('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users', formValues)
+        await axios.post('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users', formValues)
             .then((res => {
-                let data = res.data;
+                // let data = res.data;
             }))
 
-        navigate('/signup')
+        navigate('/landing-page')
     };
 
     const handleChange = (event) => {
@@ -60,32 +59,15 @@ const SignUp = () => {
 
     const validate = (values) => {
         let errors = {};
-        const emailregex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-
-        if (!values.email) {
-            errors.email = "EMAIL - Cannot be blank";
-        } else if (!emailregex.test(values.email)) {
-            errors.email = "Invalid email format";
-        }
+ 
         if (!values.username) {
             errors.username = "USERNAME - Cannot be blank";
-        }
-        if (!values.password) {
-            errors.password = "PASSWORD - Cannot be blank";
-        } else if (values.password.length < 4) {
-            errors.password = "Password must be more than 4 characters";
-        }
-        if (!values.confirm) {
-            errors.confirm = "PASSWORD - Cannot be blank";
-        } else if (values.confirm !== values.password) {
-            errors.confirm = "PASSWORDS MUST MATCH!"
         }
         if (!values.dob) {
             errors.dob = "DATE OF BIRTH - Cannot be blank";
         }
 
         return errors
-
     };
 
     useEffect(() => {
@@ -121,17 +103,6 @@ const SignUp = () => {
                     {formErrors.last_name && <span>{formErrors.last_name}</span>}
                 </div>
                 <div>
-                    <Form.Label htmlFor="email">Email</Form.Label>
-                    <Form.Control
-                        type="email"
-                        name="email"
-                        id="email"
-                        value={formValues.email}
-                        onChange={handleChange}
-                    />
-                    {formErrors.email && <span>{formErrors.email}</span>}
-                </div>
-                <div>
                     <Form.Label htmlFor="username">Username</Form.Label>
                     <Form.Control
                         type="text"
@@ -141,28 +112,7 @@ const SignUp = () => {
                         onChange={handleChange}
                     />
                     {formErrors.username && <span>{formErrors.username}</span>}
-                </div>
-                <div>
-                    <Form.Label htmlFor="password">Password</Form.Label>
-                    <Form.Control
-                        type="password"
-                        name="password"
-                        id="password"
-                        value={formValues.password}
-                        onChange={handleChange}
-                    />
-                    {formErrors.password && <span>{formErrors.password}</span>}
-                </div>
-                <div>
-                    <Form.Label htmlFor="confirm">Confirm your password</Form.Label>
-                    <Form.Control
-                        type="password"
-                        name="confirm"
-                        id="confirm"
-                        onChange={handleChange}
-                    />
-                    {formErrors.confirm && <span>{formErrors.confirm}</span>}
-                </div>
+                </div>                
                 <div>
                     <Form.Label htmlFor="dob">What is your Birthday?</Form.Label>
                     <Form.Control

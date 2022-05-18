@@ -8,11 +8,6 @@ const Auth0ProviderWithHistory = ({ children }) => {
   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
   const audience = process.env.REACT_APP_AUTH0_AUDIENCE;
 
-  //      old code
-  // const onRedirectCallback = (appState) => {
-  //   history.push(appState?.returnTo || window.location.pathname);
-  // };
-
   const onRedirectCallback = async appState => {
 
     try{
@@ -27,6 +22,7 @@ const Auth0ProviderWithHistory = ({ children }) => {
     <Auth0Provider
       domain={domain}
       clientId={clientId}
+      // redirectUri={window.location.origin}
       redirectUri={window.location.origin}
       onRedirectCallback={onRedirectCallback}
       audience={audience}
