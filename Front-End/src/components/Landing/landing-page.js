@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import SignupButton from './sign-up-button';
 import Header from '../header';
 // import party_up_logo from '../../assets/party_up_logo.png'
@@ -9,9 +10,11 @@ import axios from 'axios';
 
 
 const LandingPage = () => {
+    const location = useLocation();
     const { user, isAuthenticated, isLoading } = useAuth0();
-    const intialValues = { logged_in: false, first_name: '', last_name: '', email: '', username: '', dob: '', about_me: '', currency: 0, prof_comp: false };
+    const intialValues = { id: null, logged_in: false, first_name: '', last_name: '', email: '', username: '', dob: '', about_me: '', currency: 0, prof_comp: false };
     const [userValues, setUserValues] = useState(intialValues);
+    const { logout } = useAuth0();
     // const [errorMessage, setErrorMessage] = useState({});
 
     useEffect(() => {
@@ -28,6 +31,7 @@ const LandingPage = () => {
                             if (data[0].email === user.email) {
 
                                 const newValues = {
+                                    id: data[0].id,
                                     logged_in: true,
                                     first_name: data[0].first_name,
                                     last_name: data[0].last_name,
@@ -40,18 +44,16 @@ const LandingPage = () => {
                                 };
 
                                 setUserValues(newValues)
-                                console.log(userValues)
                                 // change this to our deployed db later, make sure it is an .env variable
-                                axios.put('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users/'+data[0].id, {logged_in: true})
-                                    .then((res => {
-                                        console.log('updated?')
-                                    }))
+                                axios.put('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users/' + data[0].id, { logged_in: true })
+
                             } else {
                                 setUserValues(userValues.prof_comp = false)
                             }
                         }
                         catch {
                             const newValues = {
+                                id: null,
                                 logged_in: false,
                                 first_name: '',
                                 last_name: '',

@@ -26,6 +26,7 @@ const Header = userValues => {
 							<NavList>
 								<NavLink
 									to="/"
+									state={{ userValues: userValues }}
 									className="nav-link"
 								>
 									My Feed
@@ -42,7 +43,8 @@ const Header = userValues => {
 							</NavList>
 							<NavList>
 								<NavLink
-									to="/friends"
+									to="/friends-list"
+									state={{ userValues: userValues }}
 									className="nav-link"
 								>
 									Friends
@@ -51,6 +53,7 @@ const Header = userValues => {
 							<NavList>
 								<NavLink
 									to="/about"
+									state={{ userValues: userValues }}
 									className="nav-link"
 								>
 									About
