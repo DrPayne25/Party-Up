@@ -76,15 +76,9 @@ const LandingPage = () => {
 
     if (isAuthenticated) {
         return (
-            <div className='landing-background'>
+            <div className='background-main'>
                 <Header userValues={userValues} />
                 <ProfComplButton userValues={userValues} />
-                <p>First Name: {userValues.first_name}</p>
-                <p>Last Name: {userValues.last_name}</p>
-                <p>Handle: {userValues.username}</p>
-                <p>Email: {user.email}</p>
-                <p>About Myself: {userValues.about_me}</p>
-                <p>I got ${userValues.currency} in site bucks.</p>
 
                 <div className='card-style'>
                     <Card style={{ width: '20rem' }}>
