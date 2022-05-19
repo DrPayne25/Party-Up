@@ -17,7 +17,7 @@ const SignUp = () => {
 
     const submit = async () => {
         // change this to our deployed db later, make sure it is an .env variable
-        await axios.post('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users', formValues)
+        await axios.post('http://localhost:8000/profiles', formValues)
             .then((res => {
                 // let data = res.data;
             }))
@@ -45,7 +45,7 @@ const SignUp = () => {
         try {
 
             // change this to our deployed db later, make sure it is an .env variable  
-            axios.get('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users/?email=' + formValues.email)
+            axios.get('http://localhost:8000/profiles/?email=' + formValues.email)
                 .then(res => {
                     console.log('CHECKED FOR EMAIL')
                     if (res.data) {

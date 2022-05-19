@@ -19,7 +19,7 @@ const LandingPage = () => {
 
                 let data;
                 // change this to our deployed db later, make sure it is an .env variable  
-                await axios.get('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users/?email=' + user.email)
+                await axios.get('http://localhost:8000/profiles/?email=' + user.email)
                     .then(res => {
                         data = res.data;
                         try {
@@ -39,7 +39,7 @@ const LandingPage = () => {
 
                                 setUserValues(newValues)
                                 // change this to our deployed db later, make sure it is an .env variable
-                                axios.put('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users/' + data[0].id, { logged_in: true })
+                                axios.put('http://localhost:8000/profiles/' + data[0].id, { logged_in: true })
 
                             } else {
                                 setUserValues(userValues.prof_comp = false)

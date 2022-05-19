@@ -9,7 +9,7 @@ const LogoutButton = (userValues) => {
   return (
     <Button variant="danger"
       onClick={() => {
-        axios.put('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users/'+userValues.userValues.id, {logged_in: false})
+        axios.put('http://localhost:8000/profiles/'+userValues.userValues.id, {logged_in: false})
         logout({ returnTo: window.location.origin });
       }}
     >
