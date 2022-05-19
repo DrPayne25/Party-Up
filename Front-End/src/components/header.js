@@ -18,6 +18,7 @@ const Header = userValues => {
 							<img
 							className='party-up-logo'
 							src={party_up_logo}
+							alt='logo'
 							/>
 							<NavList>
 								<Search>
@@ -81,6 +82,7 @@ const Header = userValues => {
 							<img
 							className='party-up-logo'
 							src={party_up_logo}
+							alt='logo'
 							/>
 							<NavList>
 								<Search>

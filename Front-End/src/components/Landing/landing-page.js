@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import SignupButton from './sign-up-button';
 import Header from '../header';
 import { Card, Button } from 'react-bootstrap';
 import { useAuth0 } from "@auth0/auth0-react";
 import ProfComplButton from '../Profile/profile-complete-button'
 import axios from 'axios';
-import Background from '../background';
 
 const LandingPage = () => {
-    const location = useLocation();
+    // const location = useLocation();
     const { user, isAuthenticated, isLoading } = useAuth0();
     const intialValues = { id: null, logged_in: false, first_name: '', last_name: '', email: '', username: '', dob: '', about_me: '', currency: 0, prof_comp: false };
     const [userValues, setUserValues] = useState(intialValues);
-    const { logout } = useAuth0();
 
     useEffect(() => {
         const findUser = async () => {
