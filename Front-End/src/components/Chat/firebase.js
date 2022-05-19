@@ -14,10 +14,9 @@ const firebaseConfig = {
     measurementId: "G-EH5Q868NMB"
 };
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 const firestore = firebase.firestore();
 const auth = firebase.auth()
-const analytics = firebase.analytics();
 const provider = new firebase.auth.GoogleAuthProvider();
 
 export { auth, provider };
