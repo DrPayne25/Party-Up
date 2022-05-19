@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import SignupButton from './sign-up-button';
 import Header from '../header';
-import party_up_logo from '../../assets/party_up_logo.png'
 import { Card, Button } from 'react-bootstrap';
 import { useAuth0 } from "@auth0/auth0-react";
 import ProfComplButton from '../Profile/profile-complete-button'
 import axios from 'axios';
-
+import Background from '../background';
 
 const LandingPage = () => {
     const { user, isAuthenticated, isLoading } = useAuth0();
@@ -15,7 +14,6 @@ const LandingPage = () => {
     const intialValues = { logged_in: false, first_name: '', last_name: '', email: '', username: '', dob: '', about_me: '', currency: 0, prof_comp: false };
     const [userValues, setUserValues] = useState(intialValues);
     // const [errorMessage, setErrorMessage] = useState({});
-
 
 
     useEffect(() => {
@@ -41,7 +39,6 @@ const LandingPage = () => {
                                     about_me: data.about_me,
                                     currency: data.currency,
                                     prof_comp: data.prof_comp };
-
                                 setUserValues(newValues)                                
                             }
                             catch {
@@ -61,7 +58,7 @@ const LandingPage = () => {
 
     if (isAuthenticated) {
         return (
-            <div>
+            <div className='background-main'>
                 <Header />
                 <h1>Partying On a Tuesday, Eh Lou?</h1>
                 <ProfComplButton isComplete={userValues} />
@@ -71,28 +68,31 @@ const LandingPage = () => {
                 <p>Email: {userValues.email}</p>
                 <p>About Myself: {userValues.about_me}</p>
                 <p>I got ${userValues.currency} in site bucks.</p>
+                <div>
+                    <Card className='card-style' style={{ width: '20rem' }}>
+                        <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZSZP3BRkh8Tyllj0wCqKUVS-dJPA8mY21Q&usqp=CAU" />
+                        <Card.Body className='card-style'>
+                        <Card.Title>HearthStone</Card.Title>
+                        <Card.Text>
+                            A card game that brings the magical experience of W.O.W into a card game.
+                        </Card.Text>
+                        <Button variant="primary" onclick="location.href='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZSZP3BRkh8Tyllj0wCqKUVS-dJPA8mY21Q&usqp=CAU'">Go somewhere</Button>
+                        </Card.Body>
+                    </Card>
+                    <Card className='card-style' style={{ width: '20rem' }}>
+                        <Card.Img variant="top" src="https://cdn.akamai.steamstatic.com/steam/apps/393080/capsule_616x353.jpg?t=1501610448" />
+                        <Card.Body className='card-style'>
+                        <Card.Title>Call Of Duty</Card.Title>
+                        <Card.Text>
+                            A game for competitive multi-platyer shooters. 
+                        </Card.Text>
+                        <Button variant="primary" onclick="location.href='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZSZP3BRkh8Tyllj0wCqKUVS-dJPA8mY21Q&usqp=CAU'">Go somewhere</Button>
+                        </Card.Body>
+                    </Card>
+                </div>     
             </div>
         )
     }
-    return (
-        <div className='landing-background'>
-            <Header />
-            <h1>Party Up!</h1>
-            <SignupButton />
-            <div className='card-style'>
-                <Card style={{ width: '20rem' }}>
-                    <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZSZP3BRkh8Tyllj0wCqKUVS-dJPA8mY21Q&usqp=CAU" />
-                    <Card.Body>
-                    <Card.Title>HearthStone</Card.Title>
-                    <Card.Text>
-                        A card game that brings the magical experience of W.O.W into a card game.
-                    </Card.Text>
-                    <Button variant="primary" onclick="location.href='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZSZP3BRkh8Tyllj0wCqKUVS-dJPA8mY21Q&usqp=CAU'">Go somewhere</Button>
-                    </Card.Body>
-                </Card>
-            </div>
-        </div> 
-    )
 }
 
 export default LandingPage;

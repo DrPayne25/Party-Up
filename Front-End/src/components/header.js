@@ -6,7 +6,6 @@ import party_up_logo from '../assets/party_up_logo.png'
 import { useAuth0 } from "@auth0/auth0-react";
 
 
-  
 const Header = () => {
 	const { isAuthenticated } = useAuth0();
 
@@ -16,6 +15,10 @@ const Header = () => {
 				<Nav>
 					<nav>
 						<NavListWrap>
+							<img
+							className='party-up-logo'
+							src={party_up_logo}
+							/>
 							<NavList>
 								<Search>
 									<div>
@@ -71,6 +74,10 @@ const Header = () => {
 				<Nav>
 					<nav>
 						<NavListWrap>
+							<img
+							className='party-up-logo'
+							src={party_up_logo}
+							/>
 							<NavList>
 								<Search>
 									<div>
