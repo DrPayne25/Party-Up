@@ -1,11 +1,14 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from './header';
 import { Carousel, Accordion } from 'react-bootstrap';
 
 const About = () => {
+    const location = useLocation();
+
     return (
         <div className='background-main'>
-            <Header />
+            <Header userValues={location.state.userValues.userValues} />
             <div>
                 <Accordion defaultActiveKey="0">
                     <Accordion.Item className='accent-style2' eventKey="1">

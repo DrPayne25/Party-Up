@@ -2,11 +2,11 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 import AuthenticationButton from './auth-button';
 import styled from 'styled-components';
-import party_up_logo from '../assets/party_up_logo.png'
+// import party_up_logo from '../assets/party_up_logo.png'
 import { useAuth0 } from "@auth0/auth0-react";
 
 
-const Header = () => {
+const Header = userValues => {
 	const { isAuthenticated } = useAuth0();
 
 	if(isAuthenticated){
@@ -29,6 +29,7 @@ const Header = () => {
 							<NavList>
 								<NavLink
 									to="/"
+									state={{ userValues: userValues }}
 									className="nav-link"
 								>
 									My Feed
@@ -37,6 +38,7 @@ const Header = () => {
 							<NavList>
 								<NavLink
 									to="/profile"
+									state={{ userValues: userValues }}
 									className="nav-link"
 								>
 									My Profile
@@ -44,7 +46,8 @@ const Header = () => {
 							</NavList>
 							<NavList>
 								<NavLink
-									to="/friends"
+									to="/friends-list"
+									state={{ userValues: userValues }}
 									className="nav-link"
 								>
 									Friends
@@ -53,6 +56,7 @@ const Header = () => {
 							<NavList>
 								<NavLink
 									to="/about"
+									state={{ userValues: userValues }}
 									className="nav-link"
 								>
 									About
@@ -60,7 +64,7 @@ const Header = () => {
 							</NavList>
 							<NavList>
 								<div>
-									<AuthenticationButton />
+									<AuthenticationButton userValues={userValues} />
 								</div>
 							</NavList>
 						</NavListWrap>
