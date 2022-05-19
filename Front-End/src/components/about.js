@@ -70,9 +70,7 @@ const About = () => {
     
                             <Carousel.Caption>
                                 <h3 className='about-text'>Minhang Xie</h3>
-                                <p className='about-text'>Worked at Apple as a computer tech and Gcoop a wellness products company.
-                                    Interested in web development, AI learning, and front/back end development.
-                                    I’m one to always be willing to learn more to further develop a prominent career within tech. My true passion lies with the pursuit of knowledge and the linear progression correlation of better living.
+                                <p className='about-text'>Background in Neuroscience and Oncology Research. Passionate about creating elegant code to solve unique problems. Always looking for opportunities to improve as a programmer. 
                                 </p>
                             </Carousel.Caption>
                         </Carousel.Item>
