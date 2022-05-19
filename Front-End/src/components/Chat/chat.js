@@ -14,7 +14,6 @@ function Chat() {
 
     useEffect(() => {
         auth.onAuthStateChanged((authUser) => {
-            console.log(authUser)
             if (authUser) {
                 dispatch(login({
                     uid: authUser.uid,

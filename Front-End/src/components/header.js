@@ -42,6 +42,14 @@ const Header = () => {
 						</NavList>
 						<NavList>
 							<NavLink
+								to="/chat"
+								className="nav-link"
+							>
+								Chat
+							</NavLink>
+						</NavList>
+						<NavList>
+							<NavLink
 								to="/friends"
 								className="nav-link"
 							>

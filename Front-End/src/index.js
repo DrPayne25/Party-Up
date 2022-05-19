@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Auth0Provider } from "@auth0/auth0-react";
 import { BrowserRouter as Router } from 'react-router-dom';
 import Auth0ProviderWithHistory from './auth/auth0-provider-with-history'
+import { Provider } from 'react-redux';
+import { store } from './app/store';
 
 //                old code
 // ReactDom.render(
@@ -20,10 +22,12 @@ import Auth0ProviderWithHistory from './auth/auth0-provider-with-history'
 // );
 
 ReactDom.render(
-  <Router>
-    <Auth0ProviderWithHistory>
-      <App />
-    </Auth0ProviderWithHistory>
-  </Router>,
+  <Provider store={store}>
+    <Router>
+      <Auth0ProviderWithHistory>
+        <App />
+      </Auth0ProviderWithHistory>
+    </Router>
+  </Provider>,
   document.getElementById("root")
 );

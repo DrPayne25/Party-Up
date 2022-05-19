@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './chatbox.css';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import Message from './message'
@@ -13,6 +13,7 @@ function ChatBox() {
 	const id = useSelector(selectChannelId);
 	const [input, setInput] = useState('');
 	const [messages, setMessages] = useState([]);
+	const dummy = useRef();
 
 	useEffect(() => {
 		if (id) {
@@ -26,9 +27,10 @@ function ChatBox() {
 		}
 	}, [id]);
 
-	const sendMessage = e => {
+	const sendMessage = async (e) => {
 		e.preventDefault()
-		firestore.collection('channels').doc(id).collection('messages').add({
+		
+		await firestore.collection('channels').doc(id).collection('messages').add({
 			timestamp: firebase.firestore.FieldValue.serverTimestamp(),
 			message: input,
 			user: user,

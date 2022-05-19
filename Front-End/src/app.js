@@ -7,6 +7,7 @@ import Feed from './components/Profile/feed.js';
 import Profile from './components/Profile/profile.js';
 import FriendsList from './components/Profile/friends-list.js';
 import About from './components/about'
+import Chat from './components/Chat/chat'
 import { useAuth0 } from '@auth0/auth0-react';
 
 //      removed the <BrowserRouter> tags as I was getting an error: 
@@ -57,6 +58,14 @@ const App = () => {
                     exact path='/about'
                     element={
                         <About />
+                    }
+                />
+                <Route
+                    exact path='/chat'
+                    element={
+                        <ProtectedRoute isAuth={isAuthenticated}>
+                            <Chat />
+                        </ProtectedRoute>
                     }
                 />
             </Routes>
