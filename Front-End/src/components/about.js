@@ -1,11 +1,14 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from './header';
 import { Carousel } from 'react-bootstrap'
 
 const About = () => {
+    const location = useLocation();
+
     return (
         <div className='about-main'>
-            <Header />
+            <Header userValues={location.state.userValues.userValues} />
             <div>
                 <Carousel className='carousel-about'>
                     <Carousel.Item>

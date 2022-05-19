@@ -1,9 +1,12 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../header';
 
 const FriendsList = () => {
+    const location = useLocation();
+    
     return (
-        <Header />
+        <Header userValues={location.state.userValues.userValues} />
     )
 }
 
