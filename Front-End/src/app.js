@@ -6,6 +6,7 @@ import SignUp from './components/sign-up.js';
 import Feed from './components/Profile/feed.js';
 import Profile from './components/Profile/profile.js';
 import FriendsList from './components/Profile/friends-list.js';
+import Chat from './components/Chat/chat'
 import About from './components/about';
 import { useAuth0 } from '@auth0/auth0-react';
 
@@ -48,6 +49,12 @@ const App = () => {
                         <ProtectedRoute isAuth={isAuthenticated}>
                             <FriendsList />
                         </ProtectedRoute>
+                    }
+                />
+                <Route
+                    exact path='/chat'
+                    element={
+                            <Chat />
                     }
                 />
                 <Route

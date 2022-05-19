@@ -56,6 +56,15 @@ const Header = userValues => {
 							</NavList>
 							<NavList>
 								<NavLink
+									to="/chat"
+									state={{ userValues: userValues }}
+									className="nav-link"
+								>
+									Chat
+								</NavLink>
+							</NavList>
+							<NavList>
+								<NavLink
 									to="/about"
 									state={{ userValues: userValues }}
 									className="nav-link"
