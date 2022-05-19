@@ -6,12 +6,9 @@ import SignUp from './components/sign-up.js';
 import Feed from './components/Profile/feed.js';
 import Profile from './components/Profile/profile.js';
 import FriendsList from './components/Profile/friends-list.js';
-import About from './components/about'
+import About from './components/about';
 import { useAuth0 } from '@auth0/auth0-react';
 
-//      removed the <BrowserRouter> tags as I was getting an error: 
-//      "You cannot Render a Browser inside another Browser"
-//      this is because the <App /> is wrapped inside a Router inside index.js
 const App = () => {
     const { isAuthenticated } = useAuth0();
     return (
@@ -34,15 +31,15 @@ const App = () => {
                     element={
                         <ProtectedRoute isAuth={isAuthenticated}>
                             <Feed />
-                        </ProtectedRoute>                        
+                        </ProtectedRoute>
                     }
                 />
                 <Route
                     path='/profile'
                     element={
                         <ProtectedRoute isAuth={isAuthenticated}>
-                        <Profile />
-                    </ProtectedRoute> 
+                            <Profile />
+                        </ProtectedRoute>
                     }
                 />
                 <Route
@@ -50,7 +47,7 @@ const App = () => {
                     element={
                         <ProtectedRoute isAuth={isAuthenticated}>
                             <FriendsList />
-                        </ProtectedRoute>                        
+                        </ProtectedRoute>
                     }
                 />
                 <Route

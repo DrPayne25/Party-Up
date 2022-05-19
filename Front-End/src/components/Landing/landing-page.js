@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import SignupButton from './sign-up-button';
 import Header from '../header';
-// import party_up_logo from '../../assets/party_up_logo.png'
 import { Card, Button } from 'react-bootstrap';
 import { useAuth0 } from "@auth0/auth0-react";
 import ProfComplButton from '../Profile/profile-complete-button'
 import axios from 'axios';
-
+import Background from '../background';
 
 const LandingPage = () => {
     const location = useLocation();
@@ -15,12 +14,10 @@ const LandingPage = () => {
     const intialValues = { id: null, logged_in: false, first_name: '', last_name: '', email: '', username: '', dob: '', about_me: '', currency: 0, prof_comp: false };
     const [userValues, setUserValues] = useState(intialValues);
     const { logout } = useAuth0();
-    // const [errorMessage, setErrorMessage] = useState({});
 
     useEffect(() => {
         const findUser = async () => {
             if (isAuthenticated) {
-                // const { email } = user;
 
                 let data;
                 // change this to our deployed db later, make sure it is an .env variable  
@@ -29,7 +26,6 @@ const LandingPage = () => {
                         data = res.data;
                         try {
                             if (data[0].email === user.email) {
-
                                 const newValues = {
                                     id: data[0].id,
                                     logged_in: true,
@@ -89,6 +85,7 @@ const LandingPage = () => {
                 <p>Email: {user.email}</p>
                 <p>About Myself: {userValues.about_me}</p>
                 <p>I got ${userValues.currency} in site bucks.</p>
+
                 <div className='card-style'>
                     <Card style={{ width: '20rem' }}>
                         <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZSZP3BRkh8Tyllj0wCqKUVS-dJPA8mY21Q&usqp=CAU" />

@@ -1,14 +1,15 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
+import { Button } from "react-bootstrap";
 
 const ProfileCompleteButton = (userValues) => {
   const navigate = useNavigate();
 
   if (userValues.userValues.prof_comp === false) {
     return (
-      <button onClick={() => navigate('/signup', { state: { newUser: userValues.userValues }, })}>
+      <Button variant='primary' onClick={() => navigate('/signup', { state: { newUser: userValues.userValues }, })}>
         Finish Your Profile!
-      </button>
+      </Button>
     )
   }
 

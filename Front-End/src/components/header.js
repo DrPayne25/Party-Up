@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { useAuth0 } from "@auth0/auth0-react";
 
 
-  
 const Header = userValues => {
 	const { isAuthenticated } = useAuth0();
 
@@ -16,6 +15,10 @@ const Header = userValues => {
 				<Nav>
 					<nav>
 						<NavListWrap>
+							<img
+							className='party-up-logo'
+							src={party_up_logo}
+							/>
 							<NavList>
 								<Search>
 									<div>
@@ -75,6 +78,10 @@ const Header = userValues => {
 				<Nav>
 					<nav>
 						<NavListWrap>
+							<img
+							className='party-up-logo'
+							src={party_up_logo}
+							/>
 							<NavList>
 								<Search>
 									<div>

@@ -7,7 +7,7 @@ const LogoutButton = (userValues) => {
   const { logout } = useAuth0();
   
   return (
-    <Button variant="outline-danger"
+    <Button variant="danger"
       onClick={() => {
         axios.put('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users/'+userValues.userValues.id, {logged_in: false})
         logout({ returnTo: window.location.origin });
