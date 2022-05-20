@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {  Link } from 'react-router-dom';
+
+import { Link } from 'react-router-dom';
 import SignupButton from './sign-up-button';
 import Header from '../header';
 import { Card, Button } from 'react-bootstrap';
@@ -133,6 +134,7 @@ const LandingPage = () => {
                                 </Card.Body>
                             </Card>
                         </div>
+
                     </Card>
                 </div>
 
