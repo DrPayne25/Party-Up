@@ -33,14 +33,16 @@ function Chat() {
     return (
         <div className="chat">
             <Header userValues={location.state.userValues.userValues} />
-            {user ? (
-                <>
-                    <ChannelBar />
-                    <ChatBox />
-                </>
-            ): (
-                <ChatLogin />
-            )}
+            <div className='chat-content'>
+                {user ? (
+                    <>
+                        <ChannelBar />
+                        <ChatBox />
+                    </>
+                ) : (
+                    <ChatLogin />
+                )}
+            </div>
         </div>
     );
 }

@@ -21,13 +21,6 @@ const Header = userValues => {
 							alt='logo'
 							/>
 							<NavList>
-								<Search>
-									<div>
-										<input type="text" placeholder="Search" />
-									</div>
-								</Search>
-							</NavList>
-							<NavList>
 								<NavLink
 									to="/"
 									state={{ userValues: userValues }}
@@ -43,15 +36,6 @@ const Header = userValues => {
 									className="nav-link"
 								>
 									My Profile
-								</NavLink>
-							</NavList>
-							<NavList>
-								<NavLink
-									to="/friends-list"
-									state={{ userValues: userValues }}
-									className="nav-link"
-								>
-									Friends
 								</NavLink>
 							</NavList>
 							<NavList>
@@ -94,13 +78,6 @@ const Header = userValues => {
 							alt='logo'
 							/>
 							<NavList>
-								<Search>
-									<div>
-										<input type="text" placeholder="Search" />
-									</div>
-								</Search>
-							</NavList>
-							<NavList>
 								<NavLink
 									to="/"
 									className="nav-link"
@@ -129,36 +106,6 @@ const Header = userValues => {
 	}
 	
 }
-
-const Search = styled.div`
-	opacity: 1;
-	flex-grow: 1;
-	position: relative;
-	@media (max-width: 768px) {
-		flex-grow: unset;
-	}
-	& > div {
-		max-width: 480px;
-		input {
-			border: none;
-			box-shadow: none;
-			background-color: #eef3f8;
-			border-radius: 2px;
-			color: rgba(0, 0, 0, 0.9);
-			width: 420px;
-			padding: 0 8px 0 40px;
-			line-height: 1.75;
-			font-weight: 400;
-			font-size: 14px;
-			height: 34px;
-			vertical-align: text-top;
-			border-color: #dce6f1;
-			@media (max-width: 768px) {
-				width: 140px;
-			}
-		}
-	}
-`;
 
 const Nav = styled.nav`
 	margin-left: auto;
@@ -199,7 +146,7 @@ const NavList = styled.li`
 		background: transparent;
 		display: flex;
 		flex-direction: column;
-		font-size: 12px;
+		font-size: 20px;
 		font-weight: 400;
 		justify-content: center;
 		line-height: 1.5;
