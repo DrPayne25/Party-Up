@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap');
+
 body {
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -46,16 +48,13 @@ body {
 	from {
 		opacity: 0;
 	}
+
 	to {
 		opacity: 1;
 	}
 }
 
-.about-text {
-  color: black;
-	margin-left: 50%;
-	margin-bottom: 10%;
-}
+
 
 .carousel-about {
 	background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIhkyCJoEldTqYFnZJC4ggxJDKQjugM4XDPw&usqp=CAU');
@@ -74,7 +73,7 @@ body {
 }
 
 .about-border {
-	border:rgb(82, 105, 195);
+	border: rgb(82, 105, 195);
 	border-style: groove;
 }
 
@@ -97,6 +96,8 @@ body {
 .profile-pic {
 	width: 180px;
 	height: 180px;
+	margin-left: 5%;
+	
 }
 
 .avatar-sizes {
@@ -105,11 +106,103 @@ body {
 	margin: 75px;
 }
 
-#tsparticles {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  top: 0;
-  left: 0;
+.cards {
+	margin: 20px;
+	filter: opacity(100%);
+}
+
+.card-image {
+	height: 300px;
+	width: 380px;
+}
+
+.card-style1 {
+	display: flex;
+	flex-direction: row;
+	margin: 0.2rem;
+	padding: 1rem;
+	margin-top: 80px;
+
+}
+
+.main-title {
+font-family: 'Mr Dafoe';
+margin-left: 38%;
+font-size: 5.5em;
+margin-top: 50px;
+color: white;
+text-shadow: 0 0 0.05em #fff, 0 0 0.2em #fe05e1, 0 0 0.3em #fe05e1;
+transform: rotate(-7deg);
+}
+
+.sign-up-button {
+	margin-left: 42%;
+	margin-top: 100px;
+}
+
+.extend-page{
+	margin-top: 100%;
+}
+
+.avatar-row {
+	margin-left: 250px;
+}
+
+.achievements-title {
+	margin-left: 33%;
+	font-size: 5.5em;
+	margin-top: 50px;
+	color: white;
+	text-shadow: 0 0 0.05em #fff, 0 0 0.2em aquamarine, 0 0 0.3em aqua;
+}
+
+.profile-info {
+	text-shadow: 0 0 0.05em #fff, 0 0 0.2em blue, 0 0 0.3em blue;
+	margin-left: 5%;
+	font-size: 1.8em;
+	color: white;
+}
+
+.about-user {
+	display: flex;
+	flex-direction: row;
+}
+
+.profile-1 {
+	display: flex;
+	flex-direction: row;
+}
+
+.about-text {
+	text-shadow: 0 0 0.05em #fff, 0 0 0.2em blue, 0 0 0.3em blue;
+	margin-left: 5%;
+	font-size: 1em;
+	color: white;
+}
+
+.about-title {
+	text-shadow: 0 0 0.05em #fff, 0 0 0.2em blue, 0 0 0.3em blue;
+	margin-left: 5%;
+	font-size: 1.8em;
+	color: white;
+}
+
+.about-text1 {
+	margin-left: 50%;
+	margin-bottom: 100px;
+	text-shadow: 0 0 0.05em #fff, 0 0 0.2em blue, 0 0 0.3em blue;
+	color: white;
+}
+
+.box1 {
+	border: groove;
+}
+
+.main-title2 {
+	font-family: 'Mr Dafoe';
+	margin-left: 38%;
+	font-size: 5.5em;
+	color: white;
+	text-shadow: 0 0 0.05em #fff, 0 0 0.2em #fe05e1, 0 0 0.3em #fe05e1;
+	transform: rotate(-7deg);
 }
