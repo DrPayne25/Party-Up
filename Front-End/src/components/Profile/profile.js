@@ -15,7 +15,8 @@ import Sword from '../../assets/sword.png';
 const Profile = () => {
     const location = useLocation();
     const { user, isAuthenticated, isLoading } = useAuth0();
-    const { first_name, last_name, username, about_me } = location.state.userValues.userValues;
+    const { first_name, last_name, username, about_me } = location.state.userValues;
+    console.log(location.state.userValues)
     // const { id, logged_in, first_name, last_name, email, username, dob, about_me, currency, prof_comp } = location.state.userValues.userValues;
 
 
