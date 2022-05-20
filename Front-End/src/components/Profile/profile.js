@@ -15,7 +15,7 @@ import Sword from '../../assets/sword.png';
 const Profile = () => {
     const location = useLocation();
     const { user, isAuthenticated, isLoading } = useAuth0();
-    const { username, about_me } = location.state.userValues.userValues;
+    const { first_name, last_name, username, about_me } = location.state.userValues.userValues;
     // const { id, logged_in, first_name, last_name, email, username, dob, about_me, currency, prof_comp } = location.state.userValues.userValues;
 
 
@@ -40,11 +40,11 @@ const Profile = () => {
                             alt='profile pic'
                         />
                     </ProfilePic>
-                    <p className='profile-info'>Name: {user.given_name}</p>
-                    <p className='profile-info'>Last: {user.family_name}</p>
+                    <p className='profile-info'>Name: {first_name}</p>
+                    <p className='profile-info'>Last: {last_name}</p>
                     <p className='profile-info'>Username: {username}</p>
                     <p className='profile-info'>Email: {user.email}</p>
-                    <p className='profile-info'>Me: {about_me}</p>
+                    <p className='profile-info'>About Me: {about_me}</p>
                 </About>
                 <Achievements>
                     <h1 className='achievements-title'>Achievements</h1>
