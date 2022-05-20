@@ -2,9 +2,7 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 import AuthenticationButton from './auth-button';
 import styled from 'styled-components';
-import party_up_logo from '../assets/party_up_logo.png'
 import { useAuth0 } from "@auth0/auth0-react";
-
 
 const Header = userValues => {
 	const { isAuthenticated } = useAuth0();
@@ -17,16 +15,9 @@ const Header = userValues => {
 						<NavListWrap>
 							<img
 							className='party-up-logo'
-							src={party_up_logo}
-							alt='logo'
+							src='https://user-images.githubusercontent.com/81993283/169421631-d8353320-6dc2-4bd1-b1fa-3f8dd4ac9d54.png'
+							alt=''
 							/>
-							<NavList>
-								<Search>
-									<div>
-										<input type="text" placeholder="Search" />
-									</div>
-								</Search>
-							</NavList>
 							<NavList>
 								<NavLink
 									to="/"
@@ -43,15 +34,6 @@ const Header = userValues => {
 									className="nav-link"
 								>
 									My Profile
-								</NavLink>
-							</NavList>
-							<NavList>
-								<NavLink
-									to="/friends-list"
-									state={{ userValues: userValues }}
-									className="nav-link"
-								>
-									Friends
 								</NavLink>
 							</NavList>
 							<NavList>
@@ -90,16 +72,9 @@ const Header = userValues => {
 						<NavListWrap>
 							<img
 							className='party-up-logo'
-							src={party_up_logo}
-							alt='logo'
+							src='https://user-images.githubusercontent.com/81993283/169421631-d8353320-6dc2-4bd1-b1fa-3f8dd4ac9d54.png'
+							alt=''
 							/>
-							<NavList>
-								<Search>
-									<div>
-										<input type="text" placeholder="Search" />
-									</div>
-								</Search>
-							</NavList>
 							<NavList>
 								<NavLink
 									to="/"
@@ -129,36 +104,6 @@ const Header = userValues => {
 	}
 	
 }
-
-const Search = styled.div`
-	opacity: 1;
-	flex-grow: 1;
-	position: relative;
-	@media (max-width: 768px) {
-		flex-grow: unset;
-	}
-	& > div {
-		max-width: 480px;
-		input {
-			border: none;
-			box-shadow: none;
-			background-color: #eef3f8;
-			border-radius: 2px;
-			color: rgba(0, 0, 0, 0.9);
-			width: 420px;
-			padding: 0 8px 0 40px;
-			line-height: 1.75;
-			font-weight: 400;
-			font-size: 14px;
-			height: 34px;
-			vertical-align: text-top;
-			border-color: #dce6f1;
-			@media (max-width: 768px) {
-				width: 140px;
-			}
-		}
-	}
-`;
 
 const Nav = styled.nav`
 	margin-left: auto;
@@ -199,7 +144,7 @@ const NavList = styled.li`
 		background: transparent;
 		display: flex;
 		flex-direction: column;
-		font-size: 12px;
+		font-size: 20px;
 		font-weight: 400;
 		justify-content: center;
 		line-height: 1.5;
