@@ -6,15 +6,12 @@ import { Card, Button } from 'react-bootstrap';
 import { useAuth0 } from "@auth0/auth0-react";
 import ProfComplButton from '../Profile/profile-complete-button'
 import axios from 'axios';
-import Background from '../background';
-// import Hearthstone from '../../assets/HS_logo.png'
 
 const LandingPage = () => {
-    const location = useLocation();
+    // const location = useLocation();
     const { user, isAuthenticated, isLoading } = useAuth0();
     const intialValues = { id: null, logged_in: false, first_name: '', last_name: '', email: '', username: '', dob: '', about_me: '', currency: 0, prof_comp: false };
     const [userValues, setUserValues] = useState(intialValues);
-    const { logout } = useAuth0();
 
     useEffect(() => {
         const findUser = async () => {
@@ -84,6 +81,10 @@ const LandingPage = () => {
                 <div className='card-style1'>
                     <Card className='cards' style={{ width: '20rem' }}>
                         <Card.Img className='card-image' variant="top" src="https://user-images.githubusercontent.com/81993283/169421645-99dc9406-1fe6-413c-be39-1b1e1ed3e33e.png"/>
+                <div className='card-style'>
+                    <Card style={{ width: '20rem' }}>
+                        <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZSZP3BRkh8Tyllj0wCqKUVS-dJPA8mY21Q&usqp=CAU" />
+
                         <Card.Body>
                             <Card.Title>HearthStone</Card.Title>
                             <Card.Text>

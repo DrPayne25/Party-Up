@@ -17,7 +17,7 @@ const SignUp = () => {
 
     const submit = async () => {
         // change this to our deployed db later, make sure it is an .env variable
-        await axios.post('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users', formValues)
+        await axios.post('https://627fe5a41020d8520577cdd2.mockapi.io/p_up/users/', formValues)
             .then((res => {
                 // let data = res.data;
             }))

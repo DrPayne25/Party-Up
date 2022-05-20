@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import Header from '../header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAuth0 } from '@auth0/auth0-react';
-// import post_modal from './profile-post-modal';
 import { Popover, OverlayTrigger } from 'react-bootstrap';
 import Coin from '../../assets/coin.png';
 import Gem from '../../assets/gem.png'
@@ -16,9 +15,9 @@ import Sword from '../../assets/sword.png';
 const Profile = () => {
     const location = useLocation();
     const { user, isAuthenticated, isLoading } = useAuth0();
-    const { id, logged_in, first_name, last_name, email, username, dob, about_me, currency, prof_comp } = location.state.userValues.userValues;
+    const { username, about_me } = location.state.userValues.userValues;
+    // const { id, logged_in, first_name, last_name, email, username, dob, about_me, currency, prof_comp } = location.state.userValues.userValues;
 
-    const axios = require('axios').default;
 
     useEffect(() => {
            
@@ -75,7 +74,7 @@ const popovergem = (
 );
 const AwardGem = () => (
     <OverlayTrigger trigger="click" placement="bottom" overlay={popovergem}>
-        <img className='avatar-sizes' src={Gem} />
+        <img className='avatar-sizes' alt='gem' src={Gem} />
     </OverlayTrigger>
 );
 
@@ -90,7 +89,7 @@ const popoversword = (
 
 const AwardSword = () => (
     <OverlayTrigger trigger="click" placement="bottom" overlay={popoversword}>
-        <img className='avatar-sizes' src={Sword} />
+        <img className='avatar-sizes' alt='sword' src={Sword} />
     </OverlayTrigger>
 );
 
@@ -105,7 +104,7 @@ const popovershield = (
 
 const AwardShield = () => (
     <OverlayTrigger trigger="click" placement="bottom" overlay={popovershield}>
-        <img className='avatar-sizes' src={Shield} />
+        <img className='avatar-sizes' alt='shield' src={Shield} />
     </OverlayTrigger>
 );
 
@@ -119,8 +118,8 @@ const popoverdiamond = (
 );
 
 const AwardDiamond = () => (
-    <OverlayTrigger trigger="click" placement="left" overlay={popoverdiamond}>
-        <img className='avatar-sizes' src={Diamond} />
+    <OverlayTrigger trigger="click" placement="bottom" overlay={popoverdiamond}>
+        <img className='avatar-sizes' alt='diamond' src={Diamond} />
     </OverlayTrigger>
 );
 
@@ -135,7 +134,7 @@ const popoverconsole = (
 
 const AwardConsole = () => (
     <OverlayTrigger trigger="click" placement="right" overlay={popoverconsole}>
-        <img className='avatar-sizes' src={Console} />
+        <img className='avatar-sizes' alt='console' src={Console} />
     </OverlayTrigger>
 );
 
@@ -150,7 +149,7 @@ const popovercoin = (
 
 const AwardCoin = () => (
     <OverlayTrigger trigger="click" placement="right" overlay={popovercoin}>
-        <img className='avatar-sizes' src={Coin} />
+        <img className='avatar-sizes' alt='coin' src={Coin} />
     </OverlayTrigger>
 );
 
