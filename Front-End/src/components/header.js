@@ -2,9 +2,7 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 import AuthenticationButton from './auth-button';
 import styled from 'styled-components';
-// import party_up_logo from '../assets/party_up_logo.png'
 import { useAuth0 } from "@auth0/auth0-react";
-
 
 const Header = userValues => {
 	const { isAuthenticated } = useAuth0();
@@ -17,7 +15,7 @@ const Header = userValues => {
 						<NavListWrap>
 							<img
 							className='party-up-logo'
-							src={party_up_logo}
+							src='https://user-images.githubusercontent.com/81993283/169421631-d8353320-6dc2-4bd1-b1fa-3f8dd4ac9d54.png'
 							/>
 							<NavList>
 								<Search>
@@ -80,7 +78,7 @@ const Header = userValues => {
 						<NavListWrap>
 							<img
 							className='party-up-logo'
-							src={party_up_logo}
+							src='https://user-images.githubusercontent.com/81993283/169421631-d8353320-6dc2-4bd1-b1fa-3f8dd4ac9d54.png'
 							/>
 							<NavList>
 								<Search>

@@ -33,34 +33,32 @@ const Profile = () => {
             <div className='background-main'>               
                 <Header userValues={location.state.userValues.userValues} />
 
-                <ProfilePic>
-                    <img
-                        className='profile-pic'
-                        src={user.picture}
-                        alt='profile pic'
-                    />
-                </ProfilePic>
-                <About>
-                    <p>{user.given_name}</p>
-                    <p>{user.family_name}</p>
-                    <p>{username}</p>
-                    <p>{user.email}</p>
-                    <p>{about_me}</p>
+                <About className='about-user'>
+                    <ProfilePic>
+                        <img
+                            className='profile-pic'
+                            src={user.picture}
+                            alt='profile pic'
+                        />
+                    </ProfilePic>
+                    <p className='profile-info'>Name: {user.given_name}</p>
+                    <p className='profile-info'>Last: {user.family_name}</p>
+                    <p className='profile-info'>Username: {username}</p>
+                    <p className='profile-info'>Email: {user.email}</p>
+                    <p className='profile-info'>Me: {about_me}</p>
                 </About>
-                <Post>
-                    <form>
-                        <label>Post something</label>
-                        <input type='text' />
-                    </form>
-                </Post>
                 <Achievements>
-                    <h1>Achievements go here</h1>
-                    <AwardSword />
-                    <AwardGem />
-                    <AwardShield />
-                    <AwardDiamond />
-                    <AwardConsole />
-                    <AwardCoin />
+                    <h1 className='achievements-title'>Achievements</h1>
+                    <div className='avatar-row'>
+                        <AwardSword />
+                        <AwardGem />
+                        <AwardShield />
+                    </div>
+                    <div className='avatar-row'>
+                        <AwardDiamond />
+                        <AwardConsole />
+                        <AwardCoin />
+                    </div>
                 </Achievements>
             </div>
         )
@@ -121,7 +119,7 @@ const popoverdiamond = (
 );
 
 const AwardDiamond = () => (
-    <OverlayTrigger trigger="click" placement="bottom" overlay={popoverdiamond}>
+    <OverlayTrigger trigger="click" placement="left" overlay={popoverdiamond}>
         <img className='avatar-sizes' src={Diamond} />
     </OverlayTrigger>
 );
@@ -158,7 +156,6 @@ const AwardCoin = () => (
 
 const ProfilePic = styled.div``
 const About = styled.div``
-const Post = styled.div``
 const Achievements = styled.div``
 
 export default Profile;

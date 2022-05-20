@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import SignupButton from './sign-up-button';
 import Header from '../header';
 import { Card, Button } from 'react-bootstrap';
@@ -7,6 +7,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import ProfComplButton from '../Profile/profile-complete-button'
 import axios from 'axios';
 import Background from '../background';
+// import Hearthstone from '../../assets/HS_logo.png'
 
 const LandingPage = () => {
     const location = useLocation();
@@ -76,47 +77,70 @@ const LandingPage = () => {
 
     if (isAuthenticated) {
         return (
-            <div className='landing-background'>
+            <div className='background-main'>
                 <Header userValues={userValues} />
+                <h1 className='main-title2'>Party Up!</h1>
                 <ProfComplButton userValues={userValues} />
-                <p>First Name: {userValues.first_name}</p>
-                <p>Last Name: {userValues.last_name}</p>
-                <p>Handle: {userValues.username}</p>
-                <p>Email: {user.email}</p>
-                <p>About Myself: {userValues.about_me}</p>
-                <p>I got ${userValues.currency} in site bucks.</p>
-
-                <div className='card-style'>
-                    <Card style={{ width: '20rem' }}>
-                        <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZSZP3BRkh8Tyllj0wCqKUVS-dJPA8mY21Q&usqp=CAU" />
+                <div className='card-style1'>
+                    <Card className='cards' style={{ width: '20rem' }}>
+                        <Card.Img className='card-image' variant="top" src="https://user-images.githubusercontent.com/81993283/169421645-99dc9406-1fe6-413c-be39-1b1e1ed3e33e.png"/>
                         <Card.Body>
                             <Card.Title>HearthStone</Card.Title>
                             <Card.Text>
                                 A card game that brings the magical experience of W.O.W into a card game.
                             </Card.Text>
-                            <Button variant="primary" onClick="location.href='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZSZP3BRkh8Tyllj0wCqKUVS-dJPA8mY21Q&usqp=CAU'">Go somewhere</Button>
+                            <Link to='//playhearthstone.com/en-us' target='_blank' rel='noopener noreferrer'>
+                                <Button variant="primary">Visit Site</Button>
+                            </Link>
                         </Card.Body>
                     </Card>
-                </div>
+                    <Card className='cards' style={{ width: '20rem' }}>
+                        <Card.Img className='card-image' variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ24CqT9Lzul1Dq2H2GWEgd3uZld8HBoEO0g&usqp=CAU" />
+                        <Card.Body>
+                            <Card.Title>Call Of Duty</Card.Title>
+                            <Card.Text>
+                                A Multi-player first person shooter that allows for some crazy highlights.
+                            </Card.Text>
+                            <Link to='//www.callofduty.com/' target='_blank' rel='noopener noreferrer'>
+                                <Button variant="primary">Visit Site</Button>
+                            </Link>
+                        </Card.Body>
+                    </Card>
+                    <Card className='cards' style={{ width: '20em' }}>
+                        <Card.Img className='card-image' variant="top" src="https://www.hrkgame.com/media/games/.thumbnails/header_Hwvf24M.jpg/header_Hwvf24M-460x215.jpg" />
+                        <Card.Body>
+                            <Card.Title>Elden Ring</Card.Title>
+                            <Card.Text>
+                                Adventure game not for the faint of heart!
+                            </Card.Text>
+                            <Link to='//en.bandainamcoent.eu/elden-ring/elden-ring' target='_blank' rel='noopener noreferrer'>
+                                <Button variant="primary">Visit Site</Button>
+                            </Link>
+                        </Card.Body>
+                    </Card>
+                    <Card className='cards' style={{ width: '20rem' }}>
+                        <Card.Img className='card-image' variant="top" src="https://user-images.githubusercontent.com/81993283/169421615-3a5706c3-62c1-43fc-b7e5-351ae16df99f.png" />
+                        <Card.Body>
+                            <Card.Title>NBA 2k22</Card.Title>
+                            <Card.Text>
+                                Basketball game for those that would like a competative edge.
+                            </Card.Text>
+                            <Link to='//nba.2k.com/' target='_blank' rel='noopener noreferrer'>
+                                <Button variant="primary">Visit Site</Button>
+                            </Link>
+                        </Card.Body>
+                    </Card>
+                </div>    
             </div>
         )
     }
     return (
-        <div className='landing-background'>
+        <div className='background-main'>
             <Header />
-            <h1>Party Up!</h1>
+            <h1 className='main-title'>Party Up!</h1>
             <SignupButton />
-            <div className='card-style'>
-                <Card style={{ width: '20rem' }}>
-                    <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZSZP3BRkh8Tyllj0wCqKUVS-dJPA8mY21Q&usqp=CAU" />
-                    <Card.Body>
-                        <Card.Title>HearthStone</Card.Title>
-                        <Card.Text>
-                            A card game that brings the magical experience of W.O.W into a card game.
-                        </Card.Text>
-                        <Button variant="primary" onclick="location.href='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZSZP3BRkh8Tyllj0wCqKUVS-dJPA8mY21Q&usqp=CAU'">Go somewhere</Button>
-                    </Card.Body>
-                </Card>
+            <div>
+                <h1 className='extend-page'>h</h1>
             </div>
         </div>
     )
