@@ -15,17 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from party_up_api.views import Profile_List, Profile_Detail 
 from rest_framework_simplejwt import views as jwt_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # Issues with line 24 -> Recursion occurs when this line is inputted(endless loop).
-    path('/', include('party_up_api.urls')),
+    path('api/v1/profiles/', include('party_up_api.urls')),
     path('api-auth', include('rest_framework.urls')),
     path('api/token', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
 ]
-
-# path('', Profile_List.as_view(), name='profile_list'),
-# path('', Profile_Detail.as_view(), name='profile_detail'),

@@ -56,7 +56,6 @@ def index(request):
     )
 
 class Profile_List(generics.ListCreateAPIView):
-    permission_classes = (IsOwnerOrReadOnly,)
     queryset = Profile.objects.all()
     serializer_class = ProfilesSerializer
 
