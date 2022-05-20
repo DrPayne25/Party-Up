@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
 import SignupButton from './sign-up-button';
 import Header from '../header';
@@ -80,54 +81,63 @@ const LandingPage = () => {
                 <ProfComplButton userValues={userValues} />
                 <div className='card-style1'>
                     <Card className='cards' style={{ width: '20rem' }}>
-                        <Card.Img className='card-image' variant="top" src="https://user-images.githubusercontent.com/81993283/169421645-99dc9406-1fe6-413c-be39-1b1e1ed3e33e.png"/>
-                        <Card.Body>
-                            <Card.Title>HearthStone</Card.Title>
-                            <Card.Text>
-                                A card game that brings the magical experience of W.O.W into a card game.
-                            </Card.Text>
-                            <Link to='//playhearthstone.com/en-us' target='_blank' rel='noopener noreferrer'>
-                                <Button variant="primary">Visit Site</Button>
-                            </Link>
-                        </Card.Body>
+                        <Card.Img className='card-image' variant="top" src="https://user-images.githubusercontent.com/81993283/169421645-99dc9406-1fe6-413c-be39-1b1e1ed3e33e.png" />
+                        <div className='card-style'>
+                            <Card style={{ width: '20rem' }}>
+                                <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZSZP3BRkh8Tyllj0wCqKUVS-dJPA8mY21Q&usqp=CAU" />
+
+                                <Card.Body>
+                                    <Card.Title>HearthStone</Card.Title>
+                                    <Card.Text>
+                                        A card game that brings the magical experience of W.O.W into a card game.
+                                    </Card.Text>
+                                    <Link to='//playhearthstone.com/en-us' target='_blank' rel='noopener noreferrer'>
+                                        <Button variant="primary">Visit Site</Button>
+                                    </Link>
+                                </Card.Body>
+
+                            </Card>
+                            <Card className='cards' style={{ width: '20rem' }}>
+                                <Card.Img className='card-image' variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ24CqT9Lzul1Dq2H2GWEgd3uZld8HBoEO0g&usqp=CAU" />
+                                <Card.Body>
+                                    <Card.Title>Call Of Duty</Card.Title>
+                                    <Card.Text>
+                                        A Multi-player first person shooter that allows for some crazy highlights.
+                                    </Card.Text>
+                                    <Link to='//www.callofduty.com/' target='_blank' rel='noopener noreferrer'>
+                                        <Button variant="primary">Visit Site</Button>
+                                    </Link>
+                                </Card.Body>
+                            </Card>
+                            <Card className='cards' style={{ width: '20em' }}>
+                                <Card.Img className='card-image' variant="top" src="https://www.hrkgame.com/media/games/.thumbnails/header_Hwvf24M.jpg/header_Hwvf24M-460x215.jpg" />
+                                <Card.Body>
+                                    <Card.Title>Elden Ring</Card.Title>
+                                    <Card.Text>
+                                        Adventure game not for the faint of heart!
+                                    </Card.Text>
+                                    <Link to='//en.bandainamcoent.eu/elden-ring/elden-ring' target='_blank' rel='noopener noreferrer'>
+                                        <Button variant="primary">Visit Site</Button>
+                                    </Link>
+                                </Card.Body>
+                            </Card>
+                            <Card className='cards' style={{ width: '20rem' }}>
+                                <Card.Img className='card-image' variant="top" src="https://user-images.githubusercontent.com/81993283/169421615-3a5706c3-62c1-43fc-b7e5-351ae16df99f.png" />
+                                <Card.Body>
+                                    <Card.Title>NBA 2k22</Card.Title>
+                                    <Card.Text>
+                                        Basketball game for those that would like a competative edge.
+                                    </Card.Text>
+                                    <Link to='//nba.2k.com/' target='_blank' rel='noopener noreferrer'>
+                                        <Button variant="primary">Visit Site</Button>
+                                    </Link>
+                                </Card.Body>
+                            </Card>
+                        </div>
+
                     </Card>
-                    <Card className='cards' style={{ width: '20rem' }}>
-                        <Card.Img className='card-image' variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ24CqT9Lzul1Dq2H2GWEgd3uZld8HBoEO0g&usqp=CAU" />
-                        <Card.Body>
-                            <Card.Title>Call Of Duty</Card.Title>
-                            <Card.Text>
-                                A Multi-player first person shooter that allows for some crazy highlights.
-                            </Card.Text>
-                            <Link to='//www.callofduty.com/' target='_blank' rel='noopener noreferrer'>
-                                <Button variant="primary">Visit Site</Button>
-                            </Link>
-                        </Card.Body>
-                    </Card>
-                    <Card className='cards' style={{ width: '20em' }}>
-                        <Card.Img className='card-image' variant="top" src="https://www.hrkgame.com/media/games/.thumbnails/header_Hwvf24M.jpg/header_Hwvf24M-460x215.jpg" />
-                        <Card.Body>
-                            <Card.Title>Elden Ring</Card.Title>
-                            <Card.Text>
-                                Adventure game not for the faint of heart!
-                            </Card.Text>
-                            <Link to='//en.bandainamcoent.eu/elden-ring/elden-ring' target='_blank' rel='noopener noreferrer'>
-                                <Button variant="primary">Visit Site</Button>
-                            </Link>
-                        </Card.Body>
-                    </Card>
-                    <Card className='cards' style={{ width: '20rem' }}>
-                        <Card.Img className='card-image' variant="top" src="https://user-images.githubusercontent.com/81993283/169421615-3a5706c3-62c1-43fc-b7e5-351ae16df99f.png" />
-                        <Card.Body>
-                            <Card.Title>NBA 2k22</Card.Title>
-                            <Card.Text>
-                                Basketball game for those that would like a competative edge.
-                            </Card.Text>
-                            <Link to='//nba.2k.com/' target='_blank' rel='noopener noreferrer'>
-                                <Button variant="primary">Visit Site</Button>
-                            </Link>
-                        </Card.Body>
-                    </Card>
-                </div>    
+                </div>
+
             </div>
         )
     }
