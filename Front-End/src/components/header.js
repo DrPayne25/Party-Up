@@ -17,7 +17,6 @@ const Header = userValues => {
 							className='party-up-logo'
 							alt='logo'
 							src='https://user-images.githubusercontent.com/81993283/169421631-d8353320-6dc2-4bd1-b1fa-3f8dd4ac9d54.png'
-							alt=''
 							/>
 							<NavList>
 								<NavLink
@@ -75,7 +74,6 @@ const Header = userValues => {
 							className='party-up-logo'
 							alt='logo'
 							src='https://user-images.githubusercontent.com/81993283/169421631-d8353320-6dc2-4bd1-b1fa-3f8dd4ac9d54.png'
-							alt=''
 							/>
 							<NavList>
 								<NavLink
